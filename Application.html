@@ -1,0 +1,76 @@
+﻿<meta name="viewport" charset=utf-8″ content="width=device-width, initial-scale=1, user-scalable=no" />
+<html>
+
+<head>
+	<title>上海海洋大学应用天地</title>
+	<link rel="stylesheet" href="css/frame.css">
+	<link rel="stylesheet" href="css/navigation.css">
+	<link rel="stylesheet" href="css/element.css">
+</head>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript" src="js/element.js"></script>
+
+<body>
+	<script type="text/javascript" src="js/header.js"></script>
+	<div class='wrap'>
+		<div class='item2'>
+			<div id="control">
+				<el-row>
+					<div v-for="App in AppInfor">
+						<el-col :span="8">
+							<div id="piclogo" align="center">
+								<a :href=App.href><img :src=App.pic /></a>
+								<div id="accname">{{App.name}}</div>
+							</div>
+						</el-col>
+					</div>
+				</el-row>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+<script>
+	var vm = new Vue({
+		el: '#control',
+		data: {
+			AppInfor: [
+				{
+					name: '海大校园地图',
+					pic: 'images/logo/map.jpg',
+					href: 'map.html',
+				},
+				{
+					name: '海大年度校历',
+					pic: 'images/logo/年度校历.jpg',
+					href: 'Calendar.html',
+				},
+				{
+					name: '专业代码查询',
+					pic: 'images/logo/专业代码查询.jpg',
+					href: 'SpecialtyCode.html',
+				},
+				{
+					name: '海大黄页',
+					pic: 'images/logo/海大黄页.jpg',
+					href: 'YellowPages.html',
+				},
+				{
+					name: '期末总评成绩预估',
+					pic: 'images/logo/成绩预估.png',
+					href: 'Score.html',
+				},
+				{
+					name: 'VR看海大',
+					pic: 'images/logo/VR看海大.jpg',
+					href: 'https://720yun.com/t/54ajzpmuua2?pano_id=5861163',
+				},
+			],
+		},
+		methods: {
+		}
+	});
+</script>
+
+</html>

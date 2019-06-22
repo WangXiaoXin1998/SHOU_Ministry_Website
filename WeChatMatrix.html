@@ -1,0 +1,401 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" charset=utf-8″ content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>上海海洋大学微信矩阵</title>
+  <link rel="stylesheet" href="css/frame.css">
+  <link rel="stylesheet" href="css/matrix.css">
+  <link rel="stylesheet" href="css/element.css">
+</head>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript" src="js/element.js"></script>
+
+<body>
+  <script type="text/javascript" src="js/header.js"></script>
+  <div id="control">
+    <div class="wrap" style="margin:8px">
+      <el-row>
+        <div v-for="(item,index) in Title">
+          <el-col :span="6">
+            <div :class="[item.swi?'buttonon':'buttonoff']" @click="click(index)">{{item.name}}</div>
+          </el-col>
+        </div>
+      </el-row>
+    </div>
+    <div class='wrap'>
+      <div class='item2'>
+        <el-row>
+          <div v-for="item in WechatInfor">
+            <div v-if="Title[item.type].swi">
+              <el-col :span="8">
+                <div class="piclogo" align="center">
+                  <a :href=item.biz?html_head+item.biz+html_end:item.html>
+                    <img :src=item.pic />
+                  </a>
+                  <div class="accname">{{item.name}}</div>
+                  <div class="accintro">{{item.profile}}</div>
+                </div>
+              </el-col>
+            </div>
+          </div>
+        </el-row>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  var vm = new Vue({
+    el: '#control',
+    data: {
+      html_head: ' https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=',
+      html_end: '==&scene=124#wechat_redirect',
+      Title: [
+        {
+          name: '校级组织',
+          swi: true,
+        },
+        {
+          name: '院级组织',
+          swi: false,
+        },
+        {
+          name: '生活服务',
+          swi: false,
+        },
+        {
+          name: '社团组织',
+          swi: false,
+        },
+      ],
+      WechatInfor: [
+        {
+          name: '上海海洋大学',
+          profile: '上海海洋大学官微',
+          pic: 'images/logo/上海海洋大学官微.png',
+          biz: 'MjM5Njc4NjQ4OQ',
+          type: 0,
+        },
+        {
+          name: 'SHOU青春',
+          profile: '共青团上海海洋大学委员会',
+          pic: 'images/logo/共青团上海海洋大学委员会.png',
+          biz: 'MzAxNzUxNDM0OQ',
+          type: 0,
+        },
+        {
+          name: '海大青年',
+          profile: '上海海洋大学学生会',
+          pic: 'images/logo/上海海洋大学学生会.png',
+          biz: 'MzA5OTQ0MDExMg',
+          type: 0,
+        },
+        {
+          name: '海大研究生会',
+          profile: '上海海洋大学研究生会',
+          pic: 'images/logo/上海海洋大学研究生会.png',
+          biz: 'MzAwMTAyNTg3OA',
+          type: 0,
+        },
+        {
+          name: '海洋易班',
+          profile: '上海海洋大学易班工作站',
+          pic: 'images/logo/上海海洋大学易班工作站.png',
+          biz: 'MzA3MTM4MjYzOA',
+          type: 0,
+        },
+        {
+          name: '上海海洋大学艺术团',
+          profile: '上海海洋大学艺术团',
+          pic: 'images/logo/上海海洋大学艺术团.png',
+          biz: 'MjM5MzA2ODkyNQ',
+          type: 0,
+        },
+        {
+          name: '上海海洋大学校记者团',
+          profile: '上海海洋大学记者团',
+          pic: 'images/logo/上海海洋大学记者团.png',
+          biz: 'MjM5MDUxNDExNA',
+          type: 0,
+        },
+        {
+          name: '海大之声广播台',
+          profile: '上海海洋大学广播台',
+          pic: 'images/logo/上海海洋大学广播台.png',
+          biz: 'MzA4NDQ2MjYxNQ',
+          type: 0,
+        },
+        {
+          name: '海大红会',
+          profile: '上海海洋大学红十字会学生分会',
+          pic: 'images/logo/上海海洋大学红十字会学生分会.png',
+          biz: 'MzI0MzA0NTk2OA',
+          type: 0,
+        },
+        {
+          name: '海洋伙管会',
+          profile: '上海海洋大学学生伙食管理委员会',
+          pic: 'images/logo/上海海洋大学学生伙食管理委员会.png',
+          biz: 'MzA5NDE4NjUxNw',
+          type: 0,
+        },
+        {
+          name: '生命团团',
+          profile: '水产与生命学院团委',
+          pic: 'images/logo/水产学院团委.png',
+          biz: 'MzUyMzk2NzY3Mw',
+          type: 1,
+        },
+        {
+          name: '海洋院团委',
+          profile: '海洋科学学院团委',
+          pic: 'images/logo/海洋科学学院团委.png',
+          biz: 'MjM5NTQ3Mzg1MA',
+          type: 1,
+        },
+        {
+          name: 'SHOU海洋科学学院学习生活圈',
+          profile: '海洋科学学院学生会',
+          pic: 'images/logo/海洋科学学院学生会.png',
+          biz: 'MjM5NDEzOTIxNQ',
+          type: 1,
+        },
+        {
+          name: 'shou食品团委',
+          profile: '食品学院团委',
+          pic: 'images/logo/食品学院团委.png',
+          biz: 'MjM5MzE2MDA2Nw',
+          type: 1,
+        },
+        {
+          name: 'SHOU食品学生汇',
+          profile: '食品学院学生会',
+          pic: 'images/logo/食品学院学生会.png',
+          biz: 'MzA3Nzg5MTE0MQ',
+          type: 1,
+        },
+        {
+          name: '海洋生态与环境团委',
+          profile: '海洋生态与环境学院团委',
+          pic: 'images/logo/海洋生态与环境学院团委.png',
+          biz: 'MzU3MjI0NjEzNQ',
+          type: 1,
+        },
+        {
+          name: '海洋生态与环境学生会',
+          profile: '海洋生态与环境学院学生会',
+          pic: 'images/logo/生环学院学生会.png',
+          biz: 'MzUyNTA4NzAzOQ',
+          type: 1,
+        },
+        {
+          name: '海大经管团委Family',
+          profile: '经济管理学院团委',
+          pic: 'images/logo/经管学院团委.png',
+          biz: 'MzAwMjE3NTcwNQ',
+          type: 1,
+        },
+        {
+          name: '海大经管快讯',
+          profile: '经济管理学院学生会',
+          pic: 'images/logo/经管学院学生会.png',
+          biz: 'MzA4Mzg1OTEyMQ',
+          type: 1,
+        },
+        {
+          name: '工程团委',
+          profile: '工程学院团委',
+          pic: 'images/logo/工程学院团委.png',
+          biz: 'MzA5MDg5ODAyMA',
+          type: 1,
+        },
+        {
+          name: '工程学生会',
+          profile: '工程学院学生会',
+          pic: 'images/logo/工程学院学生会.png',
+          biz: 'MzA4ODQ2NzMyMg',
+          type: 1,
+        },
+        {
+          name: 'SHOU信息学院团委',
+          profile: '信息学院团委',
+          pic: 'images/logo/信息学院团委.png',
+          biz: 'MzA4ODEwMTg5MA',
+          type: 1,
+        },
+        {
+          name: '信学资讯站',
+          profile: '信息学院学生会',
+          pic: 'images/logo/信学资讯站.png',
+          biz: 'MzA3MDcyNzEwOQ',
+          type: 1,
+        },
+        {
+          name: 'I文法',
+          profile: '海洋文化与法律学院',
+          pic: 'images/logo/文法学院.png',
+          biz: 'MzA5ODU0MDkwMA',
+          type: 1,
+        },
+        {
+          name: 'SHOU外院资讯站',
+          profile: '外国语学院团委',
+          pic: 'images/logo/外院团委.png',
+          biz: 'MzA4NjE0NTExNA',
+          type: 1,
+        },
+        {
+          name: '外院十点半',
+          profile: '外国语学院学生会',
+          pic: 'images/logo/外院学生会.png',
+          biz: 'MzAxMTA1ODUyMg',
+          type: 1,
+        },
+        {
+          name: '海大爱恩团委',
+          profile: '爱恩学院团委',
+          pic: 'images/logo/爱恩学院团委.png',
+          biz: 'MzA4NzcxNjE4Mw',
+          type: 1,
+        },
+        {
+          name: '上海海洋大学爱恩学生会官微',
+          profile: '爱恩学院学生会',
+          pic: 'images/logo/爱恩学院学生会.png',
+          biz: 'MzIxMTUxMzYxNw',
+          type: 1,
+        },
+        {
+          name: '上海海洋大学财务处',
+          profile: '上海海洋大学财务处',
+          pic: 'images/logo/上海海洋大学财务处.png',
+          biz: 'MzI3NTY1MDU2MQ',
+          type: 2,
+        },
+        {
+          name: '上海海洋大学图书馆',
+          profile: '上海海洋大学图书馆',
+          pic: 'images/logo/上海海洋大学图书馆.png',
+          biz: 'MzA3MTAyNjI3Mg',
+          type: 2,
+        },
+        {
+          name: '上海海洋大学后勤处',
+          profile: '上海海洋大学后勤服务中心',
+          pic: 'images/logo/上海海洋大学后勤服务中心.png',
+          biz: 'MzI1MTgwNDUzNA',
+          type: 2,
+        },
+        {
+          name: '上海海洋大学博物馆',
+          profile: '上海海洋大学博物馆',
+          pic: 'images/logo/上海海洋大学博物馆.jpg',
+          biz: 'MzU3MTA0OTcyOA',
+          type: 2,
+        },
+        {
+          name: 'SHOU就创职通车',
+          profile: '上海海洋大学就业创业服务中心',
+          pic: 'images/logo/就业创业服务中心.jpg',
+          biz: 'MzUyNjg5NTk2Mg',
+          type: 2,
+        },
+        {
+          name: 'SHOU体育管理总会',
+          profile: '上海海洋大学体育部',
+          pic: 'images/logo/上海海洋大学体育部.png',
+          biz: 'MzUyNzgxODAzOA',
+          type: 3,
+        },
+        {
+          name: '海大辩协',
+          profile: '上海海洋大学校辩论协会',
+          pic: 'images/logo/上海海洋大学校辩论协会.png',
+          biz: 'MzIwMTAyODcyNA',
+          type: 3,
+        },
+        {
+          name: '海大慕风剧社',
+          profile: '上海海洋大学慕风剧社',
+          pic: 'images/logo/上海海洋大学慕风剧社.png',
+          biz: 'MjM5MjYyNzA2OA',
+          type: 3,
+        },
+        {
+          name: 'SHOU心协',
+          profile: '上海海洋大学心理协会',
+          pic: 'images/logo/心理协会.jpg',
+          biz: 'MzU1OTc0ODQ0MA',
+          type: 3,
+        },
+        {
+          name: 'SHOU海韵书友会',
+          profile: '上海海洋大学海韵书友会',
+          pic: 'images/logo/海韵书友会.jpg',
+          biz: 'MzU4MjczNTQxOQ',
+          type: 3,
+        },
+        {
+          name: '海大龙舟',
+          profile: '上海海洋大学龙舟队',
+          pic: 'images/logo/龙舟队.jpg',
+          biz: 'MzU2MTI5NDc4Ng',
+          type: 3,
+        },
+        {
+          name: '海大游泳社',
+          profile: '上海海洋大学游泳社',
+          pic: 'images/logo/上海海洋大学游泳社.png',
+          biz: 'MjM5MjcxMzM2OA',
+          type: 3,
+        },
+        {
+          name: '韩In社',
+          profile: '上海海洋大学韩In社',
+          pic: 'images/logo/上海海洋大学韩In社.png',
+          biz: 'MjM5Mjg0Njk1OA',
+          type: 3,
+        },
+        {
+          name: 'SHOU文部',
+          profile: '上海海洋大学文部',
+          pic: 'images/logo/文部.jpg',
+          biz: 'MzIwMzYyMzY4Nw',
+          type: 3,
+        },
+        {
+          name: '海大八一社',
+          profile: '上海海洋大学八一社',
+          pic: 'images/logo/八一社.jpg',
+          biz: 'MzUzMzMyOTIzOA',
+          type: 3,
+        },
+        {
+          name: 'SHOU刀笔油画社',
+          profile: '上海海洋大学刀笔油画社',
+          pic: 'images/logo/刀笔油画社.jpg',
+          biz: 'MzU5MTg0OTgxOQ',
+          type: 3,
+        },
+        {
+          name: '公众号展示申请',
+          profile: '上海海洋大学微信矩阵',
+          pic: 'images/frame/添加.png',
+          biz: null,
+          html: 'Author.html',
+          type: 3,
+        },
+      ]
+    },
+    methods: {
+      click(index) {
+        for (let i = 0; i < 4; i++) {
+          this.Title[i].swi = false;
+        }
+        this.Title[index].swi = true;
+      }
+    },
+  });
+</script>
+
+</html>

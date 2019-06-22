@@ -1,0 +1,210 @@
+﻿<meta name="viewport" charset=utf-8″ content="width=device-width, initial-scale=1, user-scalable=no" />
+<html>
+
+<head>
+	<title>期末总评成绩预估</title>
+	<link rel="stylesheet" href="css/frame.css">
+	<link rel="stylesheet" href="css/element.css">
+</head>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript" src="js/element.js"></script>
+
+<body>
+	<script type="text/javascript" src="js/header.js"></script>
+	<div class='wrap'>
+		<div class='item2'>
+			<div id="control">
+				<center>
+					<div style="font-size:20px;color:black;margin-bottom:2px"><h1>期末总评成绩预估</h1></div>
+					<div style="font-size:12px;color:black;margin-bottom:8px">（数据仅供参考，不作为最终评分依据）</div>
+					</p>
+					<b>平时成绩</b><br>
+					<el-select v-model="regScale" size="small" style="width:80px;margin-bottom:15px">
+						<el-option v-for="per in scale" :value="per.value">{{per.text}}</el-option>
+					</el-select>%&emsp;
+					<el-input v-model="regGrade" size="small" style="width:90px" placeholder="百分成绩"></el-input>分
+					<br>
+					<b>期末成绩</b><br>
+					<el-select v-model="examScale" size="small" style="width:80px;margin-bottom:15px">
+						<el-option v-for="per in scale" :value="per.value">{{per.text}}</el-option>
+					</el-select>%&emsp;
+					<el-input v-model="examGrade" size="small" style="width:90px" placeholder="百分成绩"></el-input>分
+					<br>
+					<el-button type="primary" @click="calculateScore" style="margin-bottom:20px">预估成绩</el-button>
+					<br>
+					<div v-if="haveResult">
+						<el-card class="box-card">
+							<div slot="header" class="clearfix">
+								<span>
+									<h1>
+										<div style="font-size:18px">预估期末总评成绩</div>
+									</h1>
+								</span>
+							</div>
+							<h1 style="color:red;font-size:60px;margin-bottom:30px">{{result}}</h1>
+							<h3 style="font-size:15px">对应绩点：{{GPA}}</p>{{tips}}</h3>
+						</el-card>
+						<br>
+						<el-card class="box-card">
+							<h1>
+								<div style="font-size:18px">绩点分段预估表</div>
+							</h1>
+							</p>
+							预设条件：平时成绩{{regGrade?regGrade:0}}分(占比{{regScale}}%)
+							<el-table :data="GPAData" border highlight-current-row style="width: 100%">
+								<el-table-column prop="score" label="成绩段" align="center">
+								</el-table-column>
+								<el-table-column prop="GPA" label="绩点" align="center">
+								</el-table-column>
+								<el-table-column prop="gap" label="期末下界" align="center" :formatter="formatGap">
+								</el-table-column>
+							</el-table>
+							（名词解释：[期末下界]欲达到该绩点期末考试至少需达到的成绩）
+						</el-card>
+					</div>
+				</center>
+			</div>
+		</div>
+	</div>
+	</div>
+	</template>
+
+</body>
+<script>
+	var vm = new Vue({
+		el: '#control',
+		data: {
+			regScale: 30,
+			examScale: 70,
+			regGrade: '',
+			examGrade: '',
+			result: '',
+			GPA: '',
+			tips: '',
+			haveResult: false,
+			scale: [
+				{ text: '10%', value: '10' },
+				{ text: '20%', value: '20' },
+				{ text: '30%', value: '30' },
+				{ text: '40%', value: '40' },
+				{ text: '50%', value: '50' },
+				{ text: '60%', value: '60' },
+				{ text: '70%', value: '70' },
+				{ text: '80%', value: '80' },
+				{ text: '90%', value: '90' },
+			],
+			GPAData: [
+				{ score: '100-90', GPA: '4.0', gap: 89.5 },
+				{ score: '89-85', GPA: '3.7', gap: 84.5 },
+				{ score: '84-82', GPA: '3.3', gap: 81.5 },
+				{ score: '81-78', GPA: '3.0', gap: 77.5 },
+				{ score: '77-75', GPA: '2.7', gap: 76.5 },
+				{ score: '74-72', GPA: '2.3', gap: 71.5 },
+				{ score: '71-68', GPA: '2.0', gap: 67.5 },
+				{ score: '67-66', GPA: '1.7', gap: 65.5 },
+				{ score: '65-64', GPA: '1.5', gap: 63.5 },
+				{ score: '63-60', GPA: '1.0', gap: 59.5 },
+				{ score: '0-60', GPA: '0.0', gap: 0 },
+			],
+		},
+		methods: {
+			formatGap(row, column) {
+				gap = Math.ceil(Math.round((row.gap - this.regGrade * this.regScale / 100) / this.examScale * 10000) / 100);
+				if (gap > 100) {
+					return 'No way';
+				}
+				else if (gap < 0) {
+					return '0';
+				}
+				else {
+					return gap;
+				}
+			},
+			calculateScore() {
+				if (this.regGrade > 100)
+					this.regGrade = 100;
+				else if (this.regGrade < 0)
+					this.regGrade = 0;
+				if (this.examGrade > 100)
+					this.examGrade = 100;
+				else if (this.examGrade < 0)
+					this.examGrade = 0;
+				this.result = Math.round(this.regScale * this.regGrade + this.examScale * this.examGrade) / 100;
+				if (this.result < 60) {
+					this.GPA = '0.0';
+					gap = Math.round((60 - this.regGrade * this.regScale / 100) / (this.examScale / 100));
+					if (gap > 100) {
+						this.tips = '亲，这种情况这边建议您直接重修哦！';
+					}
+					else {
+						this.tips = '期末成绩必须' + gap + '分以上才能Pass哦！';
+					}
+				}
+				else if (this.result < 63.5) {
+					this.GPA = '1.0';
+					gap = Math.ceil(Math.round((63.5 - this.result)*10000/this.examScale)/100);
+					this.tips = '期末再多考' + gap + '分，绩点就能再上一个台阶！'
+				}
+				else if (this.result < 65.5) {
+					this.GPA = '1.5';
+					gap = Math.ceil(Math.round((65.5 - this.result)*10000/this.examScale)/100);
+					this.tips = '期末再多考' + gap + '分，绩点就能再上一个台阶！'
+				}
+				else if (this.result < 67.5) {
+					this.GPA = '1.7';
+					gap = Math.ceil(Math.round((67.5 - this.result)*10000/this.examScale)/100);
+					this.tips = '期末再多考' + gap + '分，绩点就能再上一个台阶！'
+				}
+				else if (this.result < 71.5) {
+					this.GPA = '2.0';
+					gap = Math.ceil(Math.round((71.5 - this.result)*10000/this.examScale)/100);
+					this.tips = '期末再多考' + gap + '分，绩点就能再上一个台阶！'
+				}
+				else if (this.result < 74.5) {
+					this.GPA = '2.3';
+					gap = Math.ceil(Math.round((74.5 - this.result)*10000/this.examScale)/100);
+					this.tips = '期末再多考' + gap + '分，绩点就能再上一个台阶！'
+				}
+				else if (this.result < 77.5) {
+					this.GPA = '2.7';
+					gap = Math.ceil(Math.round((77.5 - this.result)*10000/this.examScale)/100);
+					this.tips = '期末再多考' + gap + '分，绩点就能再上一个台阶！'
+				}
+				else if (this.result < 81.5) {
+					this.GPA = '3.0';
+					gap = Math.ceil(Math.round((81.5 - this.result)*10000/this.examScale)/100);
+					this.tips = '期末再多考' + gap + '分，绩点就能再上一个台阶！'
+				}
+				else if (this.result < 84.5) {
+					this.GPA = '3.3';
+					gap = Math.ceil(Math.round((84.5 - this.result)*10000/this.examScale)/100);
+					this.tips = '期末再多考' + gap + '分，绩点就能再上一个台阶！'
+				}
+				else if (this.result < 89.5) {
+					this.GPA = '3.7';
+					gap = Math.ceil(Math.round((89.5 - this.result)*10000/this.examScale)/100);
+					this.tips = '期末再多考' + gap + '分，绩点就能再上一个台阶！'
+				}
+				else if (this.result <= 100) {
+					this.GPA = '4.0';
+					this.tips = '你就是海大中最亮的学霸吧！'
+				}
+				else {
+					this.GPA = '绩你太美';
+					this.tips = '考多少分不重要，只要是个数字就好！';
+				}
+				this.haveResult = true;
+			}
+		},
+		watch: {
+			regScale(newValue) {
+				this.examScale = 100 - newValue;
+			},
+			examScale(newValue) {
+				this.regScale = 100 - newValue;
+			},
+		},
+	});
+</script>
+
+</html>

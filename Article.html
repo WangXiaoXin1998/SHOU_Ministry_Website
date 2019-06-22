@@ -1,0 +1,133 @@
+﻿<meta name="viewport" charset=utf-8″ content="width=device-width, initial-scale=1, user-scalable=no" />
+<html>
+
+<head>
+	<title>上海海洋大学专题集锦</title>
+	<link rel="stylesheet" href="css/frame.css">
+	<link rel="stylesheet" href="css/element.css">
+</head>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript" src="js/element.js"></script>
+
+<body>
+	<script type="text/javascript" src="js/header.js"></script>
+	<div class='wrap'>
+		<div class='item2'>
+			<div id="control">
+				<el-row>
+					<el-col :span="12" v-for="topic in series">
+						<a :href='topic.href'>
+							<el-card :body-style="{ padding: '0px' }">
+								<img :src='topic.pic' class="image">
+								<div style="padding: 14px;">
+									{{topic.title}}
+									<div class="bottom clearfix">
+										<time class="time">{{topic.footer}}</time>
+									</div>
+								</div>
+							</el-card>
+						</a>
+						</br>
+					</el-col>
+				</el-row>
+			</div>
+		</div>
+	</div>
+	</div>
+	</template>
+
+</body>
+<script>
+	var vm = new Vue({
+		el: '#control',
+		data: {
+			series: [
+				{
+					title: '原创推文集',
+					pic: 'images/topic/原创推文集.png',
+					href: 'https://mp.weixin.qq.com/mp/homepage?__biz=MjM5Njc4NjQ4OQ==&hid=17&sn=2ba848ba72a7fc0d6f239126b6d449fa',
+					footer: '官微团队倾心制作',
+				},
+				{
+					title: '海大新闻速递',
+					pic: 'images/topic/新闻速递.png',
+					href: 'https://mp.weixin.qq.com/mp/homepage?__biz=MjM5Njc4NjQ4OQ==&hid=11&sn=3ae3218ea70d7e6a95c5b51ecffb26be&scene=18',
+					footer: '每周要闻快速浏览',
+				},
+				{
+					title: '海大喜报',
+					pic: 'images/topic/海大喜报.png',
+					href: 'https://mp.weixin.qq.com/mp/homepage?__biz=MjM5Njc4NjQ4OQ==&hid=18&sn=2d2487d190819b788c5a981df4ff0f6f',
+					footer: '海大喜讯都在这里',
+				},
+				{
+					title: '海大文化',
+					pic: 'images/topic/海大文化.jpg',
+					href: 'https://mp.weixin.qq.com/mp/homepage?__biz=MjM5Njc4NjQ4OQ==&hid=22&sn=baa7e814e2865c836f053ed16e099d21',
+					footer: '一品海大文化之韵',
+				},
+				{
+					title: '海大节气',
+					pic: 'images/topic/海大节气.jpg',
+					href: 'https://mp.weixin.qq.com/mp/homepage?__biz=MjM5Njc4NjQ4OQ==&hid=21&sn=d9f7cd0c1003a2c4dae182824b230765',
+					footer: '二十四节气随行记',
+				},
+				{
+					title: '风云人物',
+					pic: 'images/topic/风云人物.png',
+					href: 'https://mp.weixin.qq.com/mp/homepage?__biz=MjM5Njc4NjQ4OQ==&hid=19&sn=1db114c9357579073d8a623c98fd9737',
+					footer: '集结海大最牛师生',
+				},
+				{
+					title: '校园风光',
+					pic: 'images/topic/校园风光.png',
+					href: 'https://mp.weixin.qq.com/mp/homepage?__biz=MjM5Njc4NjQ4OQ==&hid=20&sn=19e6659e45d68cc09d66b2ef31f7a337',
+					footer: '海大美景尽收眼底',
+				},
+			],
+		},
+		methods: {
+		}
+	});
+</script>
+
+<style>
+	.articleDate {
+		font-fize: 14px;
+		color: gray;
+		text-align: right
+	}
+
+	.articleTitle {
+		font-size: 14px;
+		color: black
+	}
+
+	.time {
+		font-size: 13px;
+		color: #999;
+	}
+
+	.bottom {
+		margin-top: 5px;
+		margin-bottom: 5px;
+		line-height: 15px;
+	}
+
+	.image {
+		width: 100%;
+		display: block;
+	}
+
+	.clearfix:before,
+	.clearfix:after {
+		display: table;
+		content: "";
+	}
+
+	.clearfix:after {
+		clear: both
+	}
+</style>
+
+</html>

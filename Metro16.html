@@ -1,0 +1,180 @@
+﻿<meta name="viewport" charset=utf-8″ content="width=device-width, initial-scale=1, user-scalable=no" />
+<html>
+
+<head>
+	<title>上海海洋大学校园黄页</title>
+	<link rel="stylesheet" href="css/frame.css">
+	<link rel="stylesheet" href="css/element.css">
+</head>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript" src="js/element.js"></script>
+<script type="text/javascript" src="js/vue-clipboard.min.js"></script>
+
+<body>
+	<script type="text/javascript" src="js/header.js"></script>
+	<div class='wrap'>
+		<div class='box'>
+			<div id="control">
+				<div v-for="data in metroData">
+					<el-card>
+						<div slot="header">
+							<div class="station">
+								{{data.station}}站
+							</div>
+							<br>
+							<div class="direction">
+								开往->{{data.direction}}
+							</div>
+						</div>
+						<el-row>
+							<el-col :span="12">
+								<div class="preTitle">预计到站</div>
+								<br>
+								<div class="preTime">{{data.preArriveTime}}</div>
+							</el-col>
+							<el-col :span="12">
+								<div class="preTitle">预计发车</div>
+								<br>
+								<div class="preTime">{{data.preGoTime}}</div>
+							</el-col>
+						</el-row>
+						<br>
+						<el-collapse>
+							<el-collapse-item title="查看今日全部班次">
+								<el-table :data="data.tableData_1" style="width: 100%">
+									<el-table-column prop="arriveTime" label="预计到达" width="300">
+									</el-table-column>
+									<el-table-column prop="goTime" label="预计发车" width="300">
+									</el-table-column>
+								</el-table>
+							</el-collapse-item>
+						</el-collapse>
+					</el-card>
+					<br>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script>
+	var vm = new Vue({
+		el: '#control',
+		data: {
+			input: '',
+			metroData: [
+				{
+					station: '龙阳路',
+					direction: '滴水湖',
+					preArriveTime: '16:30',
+					preGoTime: '16:50',
+					tableData_1: [
+						{
+							arriveTime: '06:57',
+							goTime: '06:57',
+						},
+						{
+							arriveTime: '09:42',
+							goTime: '06:57',
+						},
+						{
+							arriveTime: '06:57',
+							goTime: '06:57',
+						},
+						{
+							arriveTime: '06:57',
+							goTime: '06:57',
+						},
+						{
+							arriveTime: '06:57',
+							goTime: '06:57',
+						},
+						{
+							arriveTime: '06:57',
+							goTime: '06:57',
+						},
+						{
+							arriveTime: '06:57',
+							goTime: '06:57',
+						},
+					],
+
+					tableData_2: {
+						arriveTime: ['06:57', '09:42', '11:29', '13:04', '14:53', '16:39', '18:22'],
+						goTime: ['06:57', '09:42', '11:29', '13:04', '14:53', '16:39', '18:22']
+					},
+				},
+				{
+					station: '罗山路',
+					direction: '滴水湖',
+					preArriveTime: '--:--',
+					preGoTime: '--:--',
+					arriveTime_1: [''],
+					goTime_1: [''],
+					arriveTime_2: [''],
+					goTime_2: [],
+				},
+				{
+					station: '临港大道',
+					direction: '龙阳路',
+					preArriveTime: '--:--',
+					preGoTime: '--:--',
+					arriveTime_1: [''],
+					goTime_1: [],
+					arriveTime_2: [''],
+					goTime_2: [],
+				},
+				{
+					station: '滴水湖',
+					direction: '龙阳路',
+					preArriveTime: '--:--',
+					preGoTime: '--:--',
+					arriveTime_1: [''],
+					goTime_1: [],
+					arriveTime_2: [''],
+					goTime_2: [],
+				},
+			]
+		},
+		methods: {
+		},
+	});
+</script>
+
+<style>
+	.box {
+		width: 96%;
+		margin-left: 2%;
+	}
+
+	.station {
+		font-size: 35px;
+		font-weight: 700;
+		text-align: center;
+		line-height: 25px;
+	}
+
+	.direction {
+		font-size: 16px;
+		text-align: center;
+		font-weight: 500;
+		line-height: 10px;
+	}
+
+	.preTitle {
+		font-size: 16px;
+		text-align: center;
+		font-weight: 700;
+		line-height: 10px;
+	}
+
+	.preTime {
+		font-size: 16px;
+		text-align: center;
+		color: red;
+		font-weight: 700;
+		line-height: 10px;
+	}
+</style>
+
+</html>

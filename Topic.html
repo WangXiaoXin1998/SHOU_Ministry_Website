@@ -1,0 +1,257 @@
+﻿<meta name="viewport" charset=utf-8″ content="width=device-width, initial-scale=1, user-scalable=no" />
+<html>
+
+<head>
+	<title>上海海洋大学系列专题</title>
+	<link rel="stylesheet" href="css/frame.css">
+	<link rel="stylesheet" href="css/element.css">
+</head>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript" src="js/element.js"></script>
+
+<body>
+	<script type="text/javascript" src="js/header.js"></script>
+	<div class='wrap'>
+		<div class='item2'>
+			<div id="control">
+				<el-row>
+					<div v-for="topic in series">
+						<el-card :body-style="{ padding: '0px' }"><img :src='topic.pic' class="image">
+							<div style="padding: 14px;">
+								<el-collapse>
+									<el-collapse-item :title="topic.title">
+										<div v-for="article in topic.box">
+											<el-row :gutter="20">
+												<el-col :span="15">
+													<a :href="article.href">
+														<div class="articleTitle">
+															<li class="el-icon-link"></li>&nbsp;{{article.title}}
+														</div>
+													</a>
+												</el-col>
+												<el-col :span="9">
+													<div class="articleDate">
+														{{article.date}}
+													</div>
+												</el-col>
+											</el-row>
+										</div>
+									</el-collapse-item>
+								</el-collapse>
+								<div class="bottom clearfix">
+									<time class="time">{{topic.footer}}</time>
+								</div>
+							</div>
+						</el-card>
+						<br>
+					</div>
+				</el-row>
+			</div>
+		</div>
+	</div>
+	</div>
+	</template>
+
+</body>
+<script>
+	var vm = new Vue({
+		el: '#control',
+		data: {
+			series: [
+				{
+					title: '“深海课堂”系列推送',
+					pic: 'images/topic/深海课堂.jpg',
+					footer: '共3篇',
+					box: [
+						{
+							title: '坐上潜水器，去深海看看',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652323747&idx=1&sn=80331998465319169093bc1bfc85b331&scene=19#wechat_redirect',
+							date: '2019-01-28',
+						},
+						{
+							title: '深海生物的“十八般武艺”',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652323578&idx=1&sn=1044fdca9b07068ee071ce635451bcad&scene=19#wechat_redirect',
+							date: '2019-01-15',
+						},
+						{
+							title: '深海课堂 | 你不知道的深海世界”',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652323578&idx=1&sn=1044fdca9b07068ee071ce635451bcad&scene=19&token=1961017632&lang=zh_CN#wechat_redirect',
+							date: '2019-01-12',
+						},
+					]
+				},
+				{
+					title: '“行走的课堂”系列报道',
+					pic: 'images/topic/行走的课堂.jpg',
+					footer: '共3篇',
+					box: [
+						{
+							title: '行走的课堂 | 教授博士服务团赴青浦、金坛、宣城与阳澄湖开展科技服务',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652321239&idx=1&sn=94019f5dbc249cf01cc8032f6216bd15&scene=19#wechat_redirect',
+							date: '2018-08-24',
+						},
+						{
+							title: '行走的课堂 | 教授博士服务团赴福建开展调研和科技服务',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652321224&idx=1&sn=ac6201757ea37345c621f690f27be09b&scene=19#wechat_redirect',
+							date: '2018-08-22',
+						},
+						{
+							title: '行走的课堂 | 我校教授博士服务团赴奉贤、崇明和昆山开展科技服务',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652321207&idx=1&sn=5d0f8d36c2e002b30dd0d8974d3f8098&scene=19#wechat_redirect',
+							date: '2019-08-19',
+						},
+					]
+				},
+				{
+					title: '“官微带你去旅行”系列推送',
+					pic: 'images/topic/官微带你去旅行.jpg',
+					footer: '共3篇',
+					box: [
+						{
+							title: '官微带你去旅游第五站 | 四川',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652321813&idx=1&sn=6fa0b68412ef226e923f3d955c97dcfb&scene=19#wechat_redirect',
+							date: '2018-10-02',
+						},
+						{
+							title: '官微带你去旅游第四站 | 青岛',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652321302&idx=1&sn=6247e2b90557b92976278b5bbd7dc517&scene=19#wechat_redirect',
+							date: '2018-09-04',
+						},
+						{
+							title: '官微带你去旅游第三站 | 扬州',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652321220&idx=1&sn=12527806bba08b802b3b24550f3f475f&scene=19#wechat_redirect',
+							date: '2018-08-21',
+						},
+						{
+							title: '官微带你去旅行 | 第二站，内蒙',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652321158&idx=1&sn=ed7942fa30e313170d3e7e2ff2fef182&scene=19#wechat_redirect',
+							date: '2018-08-14',
+						},
+						{
+							title: '官微带你去旅行 | 第一站，北京',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652321129&idx=1&sn=a55be8b54eef7246132a21784adf9abc&scene=19#wechat_redirect',
+							date: '2018-08-06',
+						},
+					]
+				},
+				{
+					title: '“奋斗的青春最美丽”系列报道',
+					pic: 'images/topic/奋斗的青春最美丽.jpg',
+					footer: '共6篇',
+					box: [
+						{
+							title: '迎评促建丨“奋斗的青春最美丽”系列报道：平凡，“烨”可以很闪耀',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652321255&idx=1&sn=f18c953f650aea1794a2f03dc766d223&scene=19#wechat_redirect',
+							date: '2018-08-27',
+						},
+						{
+							title: '迎评促建丨“奋斗的青春最美丽”系列报道：寒潭未暖，砚词无终',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652321155&idx=1&sn=91e510c833f79730c1a67ab6d3266ac7&scene=19#wechat_redirect',
+							date: '2018-08-13',
+						},
+						{
+							title: '迎评促建 | “奋斗的青春最美丽”系列报道：心有猛虎，细嗅蔷薇，彰显骨干品德',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652321135&idx=1&sn=fe5be9e1682426364ed1a7793bc8ea53&scene=19#wechat_redirect',
+							date: '2018-08-08',
+						},
+						{
+							title: '迎评促建 | “奋斗的青春最美丽”系列报道：成就集体，成就个人',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652321065&idx=1&sn=957a34e3afcd9781e14a8015f5ce9900&scene=19#wechat_redirect',
+							date: '2018-08-03',
+						},
+						{
+							title: '迎评促建丨“奋斗的青春最美丽”系列报道：心有所向，持之以恒',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652320979&idx=1&sn=24e64d05e07e9b8a7dd9050bfd4ea280&scene=19#wechat_redirect',
+							date: '2018-07-23',
+						},
+						{
+							title: '迎评促建丨“奋斗的青春最美丽”系列报道：时光不负有心人',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652320993&idx=1&sn=057bdf4f4c3c6603d4ba2d84d9c88e5c&scene=19#wechat_redirect',
+							date: '2018-07-26',
+						},
+					]
+				},
+				{
+					title: '“三尺讲台感谢有你”系列报道',
+					pic: 'images/topic/三尺讲台感谢有你.png',
+					footer: '共6篇',
+					box: [
+						{
+							title: '迎评促建 | “三尺讲台 感谢有你”系列报道：辛勤耕耘，默默守望',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652321246&idx=1&sn=3de8364440672d0793ca4cea977d5cb3&scene=19#wechat_redirect',
+							date: '2018-08-25',
+						},
+						{
+							title: '迎评促建 | “三尺讲台 感谢有你”系列报道：数十载教龄 初心仍不改',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652321140&idx=1&sn=63b00878e132f67798ac6189eeecd905&scene=19#wechat_redirect',
+							date: '2018-08-10',
+						},
+						{
+							title: '迎评促建 | “三尺讲台 感谢有你”系列报道：课堂有旁听生的优秀课程导师',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652321128&idx=1&sn=2e53ff20c865249890075112313774b9&scene=19#wechat_redirect',
+							date: '2018-08-05',
+						},
+						{
+							title: '迎评促建 | “三尺讲台 感谢有你”系列报道：从海大学子到海大教师，教育育人在海大',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652321041&idx=1&sn=960e77bfb12527a735b1afe0ba4ad074&scene=19#wechat_redirect',
+							date: '2018-07-31',
+						},
+						{
+							title: '迎评促建 | “三尺讲台 感谢有你”系列报道：用一叶龙舟破浪斩风流',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652321004&idx=1&sn=438798ed9b628a30726e663d1ff15cc1&scene=19#wechat_redirect',
+							date: '2018-07-28',
+						},
+						{
+							title: '迎评促建 | “三尺讲台 感谢有你”系列报道：言传身教，寓教于乐',
+							href: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652320989&idx=1&sn=44ff557d753b160ed6d3bf85d8782b6f&scene=19#wechat_redirect',
+							date: '2018-07-25',
+						},
+					]
+				},
+			],
+		},
+		methods: {
+		}
+	});
+</script>
+
+<style>
+	.articleDate {
+		font-fize: 14px;
+		color: gray;
+		text-align: right
+	}
+
+	.articleTitle {
+		font-size: 14px;
+		color: black
+	}
+
+	.time {
+		font-size: 13px;
+		color: #999;
+	}
+
+	.bottom {
+		margin-top: 5px;
+		margin-bottom: 5px;
+		line-height: 15px;
+	}
+
+	.image {
+		width: 100%;
+		display: block;
+	}
+
+	.clearfix:before,
+	.clearfix:after {
+		display: table;
+		content: "";
+	}
+
+	.clearfix:after {
+		clear: both
+	}
+</style>
+
+</html>

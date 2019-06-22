@@ -1,0 +1,38 @@
+.piclogo {
+	margin: 0px auto
+}
+.piclogo img {
+	width: 80%;
+	border-radius: 50%;
+	overflow: hidden;
+  margin-top: 8px;
+}
+.accname {
+	font-size: 85%;
+	color: rgb(0,0,0);
+	font-family: "等线";
+	font-weight: 700;
+	text-align: center;
+	line-height: 18px;
+}
+.accintro {
+	font-size: 65%;
+	font-family: "等线";
+	text-align: center;
+	line-height: 12px;
+}
+.abouttitle{
+	text-align: left;
+	font-weight: bold;
+	font-family: "微软雅黑";
+	font-size: 16px;
+	line-height: 30px;
+	margin-left: 15px;
+}
+.aboutcontent{
+	text-align: left;
+	font-family: "微软雅黑";
+	font-size: 13px;
+	line-height: 20px;
+	margin-left: 28px;
+}

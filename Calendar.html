@@ -1,0 +1,57 @@
+﻿<meta name="viewport" charset=utf-8″ content="width=device-width, initial-scale=1, user-scalable=no" />
+<html>
+
+<head>
+	<title>上海海洋大学年度校历</title>
+	<link rel="stylesheet" href="css/frame.css">
+	<link rel="stylesheet" href="css/element.css">
+</head>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript" src="js/element.js"></script>
+
+
+<body>
+	<script type="text/javascript" src="js/header.js"></script>
+	<div class='wrap'>
+		<div class='item2'>
+			<div id="control">
+				<el-collapse v-model="activeYear" accordion>
+					<div v-for="year in year">
+						<el-collapse-item :title="year+'-'+(year+1)+'学年'" :name="year">
+							<img :src="'images/calendar/'+year+'_1.png'" class="maxImg">
+							<img :src="'images/calendar/'+year+'_2.png'" class="maxImg">
+						</el-collapse-item>
+					</div>
+				</el-collapse>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
+
+<style>
+	.el-dropdown-link {
+		cursor: pointer;
+		color: #409EFF;
+	}
+
+	.el-icon-arrow-down {
+		font-size: 12px;
+	}
+
+	.maxImg {
+		width: 100%
+	}
+</style>
+<script>
+	var vm = new Vue({
+		el: '#control',
+		data: {
+			activeYear: 2019,
+			year: [2019, 2018]
+		},
+		methods: {
+		}
+	})
+</script>

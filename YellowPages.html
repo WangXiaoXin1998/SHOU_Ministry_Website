@@ -1,0 +1,323 @@
+﻿<meta name="viewport" charset=utf-8″ content="width=device-width, initial-scale=1, user-scalable=no" />
+<html>
+
+<head>
+	<title>上海海洋大学校园黄页</title>
+	<link rel="stylesheet" href="css/frame.css">
+	<link rel="stylesheet" href="css/element.css">
+</head>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript" src="js/element.js"></script>
+<script type="text/javascript" src="js/vue-clipboard.min.js"></script>
+
+<body>
+	<script type="text/javascript" src="js/header.js"></script>
+	<div class='wrap'>
+		<div class='box'>
+			<div id="control">
+				<el-input style="width:70%;margin-left:30%" placeholder="请输入部门/科室/电话" prefix-icon="el-icon-search"
+					v-model="input">
+				</el-input>
+				<br><br>
+				<div v-for="phone in telData">
+					<div v-if=cal(phone.department,input)||cal(phone.telephone,input)>
+						<el-card>
+							<div slot="header" class="depart">
+								<span>{{phone.department}}</span>
+							</div>
+							<div class="tel">
+								<li class="el-icon-location-information"></li>&nbsp;校区：{{phone.campus}}
+							</div>
+							<div class="tel">
+								<li class="el-icon-phone-outline"></li>&nbsp;电话：{{phone.telephone}}
+								<div class="copy">
+									<el-button plain round size="mini" @click='tel(phone.telephone)'>拨打</el-button>
+								</div>
+								<div class="copy">
+									<!-- <el-button plain round size="mini" v-clipboard:copy="phone.telephone"
+										v-clipboard:success="onCopy" v-clipboard:error="onError">复制</el-button> -->
+								</div>
+							</div>
+						</el-card>
+						<br>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script>
+	var vm = new Vue({
+		el: '#control',
+		data: {
+			input: '',
+			telData: [
+				{
+					department: '校办',
+					campus: '临港',
+					telephone: '021-61900296',
+				},
+				{
+					department: '保卫处（武装部）',
+					campus: '临港',
+					telephone: '021-61900110',
+				},
+				{
+					department: '后勤百事通',
+					campus: '临港',
+					telephone: '021-61900100',
+				},
+				{
+					department: '医疗服务（门诊部/医务室）',
+					campus: '临港',
+					telephone: '021-61900120',
+				},
+				{
+					department: '交通服务',
+					campus: '临港',
+					telephone: '021-61900993',
+				},
+				{
+					department: '海天苑餐厅',
+					campus: '临港',
+					telephone: '021-61900579',
+				},
+				{
+					department: '研究生交流培训中心',
+					campus: '临港',
+					telephone: '021-61900902',
+				},
+				{
+					department: '中航物业',
+					campus: '临港',
+					telephone: '021-61900991',
+				},
+				{
+					department: '生乐物业（学生社区）',
+					campus: '临港',
+					telephone: '021-61900975',
+				},
+				{
+					department: '现代信息与教育技术中心（现教中心）',
+					campus: '临港',
+					telephone: '021-61900099',
+				},
+				{
+					department: '中国联通（上海海洋大学营业厅）',
+					campus: '临港',
+					telephone: '021-61901234',
+				},
+				{
+					department: '综合办',
+					campus: '军工路',
+					telephone: '021-65710364',
+				},
+				{
+					department: '招待所',
+					campus: '军工路',
+					telephone: '021-65710013',
+				},
+				{
+					department: '党委办公室、校长办公室、信访办公室',
+					campus: '临港',
+					telephone: '021-61900502',
+				},
+				{
+					department: '纪委、检查处、审计处',
+					campus: '临港',
+					telephone: '021-61900294',
+				},
+				{
+					department: '教务处（教务科）',
+					campus: '临港',
+					telephone: '021-61900131',
+				},
+				{
+					department: '教务处（创新实践科）',
+					campus: '临港',
+					telephone: '021-61900134',
+				},
+				{
+					department: '教务处（教学研究科）',
+					campus: '临港',
+					telephone: '021-61900117',
+				},
+				{
+					department: '教务处（教师教学发展中心）',
+					campus: '临港',
+					telephone: '021-61900111',
+				},
+				{
+					department: '教务处（招生办公室）',
+					campus: '临港',
+					telephone: '021-61900152',
+				},
+				{
+					department: '教务处（社会考试科）',
+					campus: '临港',
+					telephone: '021-61900116',
+				},
+				{
+					department: '教务处（综合管理办公室）',
+					campus: '临港',
+					telephone: '021-61900116',
+				},
+				{
+					department: '图文信息中心（图书馆办公室）',
+					campus: '临港',
+					telephone: '021-61900209',
+				},
+				{
+					department: '图文信息中心（信息咨询部）',
+					campus: '临港',
+					telephone: '021-61908302',
+				},
+				{
+					department: '图文信息中心（资源建设部）',
+					campus: '临港',
+					telephone: '021-61900207',
+				},
+				{
+					department: '图文信息中心（借阅部）',
+					campus: '临港',
+					telephone: '021-61900206',
+				},
+				{
+					department: '图文信息中心（阅览部）',
+					campus: '临港',
+					telephone: '021-61908751',
+				},
+				{
+					department: '图文信息中心（技术部）',
+					campus: '临港',
+					telephone: '021-61900210',
+				},
+				{
+					department: '图文信息中心（文化建设部）',
+					campus: '临港',
+					telephone: '021-61900210',
+				},
+				{
+					department: '财务与资产管理处（财务报销）',
+					campus: '临港',
+					telephone: '021-61900255',
+				},
+				{
+					department: '财务与资产管理处（招标办）',
+					campus: '临港',
+					telephone: '021-61900755',
+				},
+				{
+					department: '学生工作部（学生处服务电话）',
+					campus: '临港',
+					telephone: '021-61900148',
+				},
+				{
+					department: '学生工作部（职业咨询室）',
+					campus: '临港',
+					telephone: '021-61900025',
+				},
+				{
+					department: '学生工作部、团委、学生处（心理咨询中心）',
+					campus: '临港',
+					telephone: '021-61900157',
+				},
+				{
+					department: '学生工作部、团委、学生处（创业指导室）',
+					campus: '临港',
+					telephone: '021-61900156',
+				},
+				{
+					department: '学生工作部、团委、学生处（易班发展中心）',
+					campus: '临港',
+					telephone: '021-61900158',
+				},
+				{
+					department: '学生工作部、团委、学生处（民族学生教育管理）',
+					campus: '临港',
+					telephone: '021-61900122',
+				},
+				{
+					department: '学生工作部、团委、学生处（思政科研室）',
+					campus: '临港',
+					telephone: '021-61900523',
+				},
+				{
+					department: '学生工作部、团委、学生处（学生处辅导员队伍建设办公室）',
+					campus: '临港',
+					telephone: '021-61900484',
+				},
+				{
+					department: '学生工作部、团委、学生处（学生资助中心）',
+					campus: '临港',
+					telephone: '021-61900163',
+				},
+				{
+					department: '学生工作部、团委、学生处（心理健康与职业生涯教研室）',
+					campus: '临港',
+					telephone: '021-61900487',
+				},
+				{
+					department: '学生工作部、团委、学生处（学生教育管理）',
+					campus: '临港',
+					telephone: '021-61900145',
+				},
+				{
+					department: '学生工作部、团委、学生处（学生档案室）',
+					campus: '临港',
+					telephone: '021-61900146',
+				},
+				{
+					department: '中国邮政（海洋大学邮政所）',
+					campus: '临港',
+					telephone: '021-61900922',
+				},
+			]
+		},
+		methods: {
+			cal(str1, str2) {
+				return str1.includes(str2)
+			},
+			tel(telephone) {
+				window.location.href = 'tel:' + telephone
+			},
+			onCopy() {
+				this.$message({
+					message: '复制成功！',
+					type: 'success',
+				});
+			},
+			// 复制失败
+			onError(e) {
+				this.$message.error('糟糕！复制失败！');
+			},
+		},
+	});
+</script>
+
+<style>
+	.box {
+		width: 96%;
+		margin-left: 2%;
+	}
+
+	.depart {
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 18px
+	}
+
+	.tel {
+		font-size: 14px;
+		line-height: 20px;
+	}
+
+	.copy {
+		float: right;
+		margin-top: -5px;
+		margin-left: 2px;
+	}
+</style>
+
+</html>

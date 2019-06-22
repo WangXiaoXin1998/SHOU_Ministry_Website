@@ -1,0 +1,282 @@
+﻿<meta name="viewport" charset=utf-8″ content="width=device-width, initial-scale=1, user-scalable=no" />
+<html>
+
+<head>
+  <title>上海海洋大学通讯社</title>
+  <link rel="stylesheet" href="css/frame.css">
+  <link rel="stylesheet" href="css/element.css">
+</head>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript" src="js/element.js"></script>
+
+<body>
+  <script type="text/javascript" src="js/header.js"></script>
+
+  <div id="control">
+    <div class="wrap" style="margin:8px">
+      <el-row>
+        <div v-for="(item,index) in Title">
+          <el-col :span="6">
+            <div :class="[item.swi?'buttonon':'buttonoff']" @click="click(index)">{{item.name}}</div>
+          </el-col>
+        </div>
+      </el-row>
+    </div>
+    <div class='wrap'>
+      <div class='item2' v-if='Title[0].swi'>
+        <div class='abouttitle'>团队简介</div>
+        <hr>
+        </p>
+        <div class='aboutcontent'>
+          &emsp;&emsp;上海海洋大学官微（微信、微博）作为学校宣传工作的一个重要载体，在校党委宣传部的指导下开展工作，主要面向的对象是在校师生、毕业校友、学生家长、社会人士等群体，积极宣传党的路线、方针、政策，围绕学校的中心工作，及时报道校内的新人、新事、新风尚，反映学校在教学、科研、学生活动等方面的动态，丰富校园生活，为建设和谐校园创造良好的舆论环境。官微团队致力于打造一个“无微不至”的服务型学生组织，希望在海大人成为一个心中“有态度、有温度”的平台。
+          </p>
+          &emsp;&emsp;在各大校级学生组织中，官微是极少数每日与指导老师、部员互相沟通交流的部门，可以得到更多、更专业的指导。官微是学校对内、对外宣传和展示的重要窗口，是学校最权威的官方公众平台。目前组织下设文案策划部、微信运营部、微博运营部、摄影部及设计部共5个部门。
+          </p>
+          <center>
+            <img src="images/about/官微二维码.jpg" width=180px height=180px></center>
+        </div>
+        <br>
+        <div class='abouttitle'>加入我们</div>
+        <hr><br>
+        </p>
+        <div class='aboutcontent'>
+          <center>
+            <a href="https://mp.weixin.qq.com/s/JLXCsIZ_JEFMavEda2fFzQ">2018年秋季招新链接</a></p>（当前未在招新阶段，敬请关注！）</center>
+          </p>
+        </div>
+        <br>
+        <br>
+        <div class='abouttitle'>团队足迹</div>
+        <hr>
+        <div class='memtable'><br>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <th scope="col" colspan="5">2018届</th>
+              </tr>
+              <tr>
+                <td>
+                  <b>王肖</b>
+                  </p>官微负责人</td>
+                <td>
+                  <b>杨若君</b>
+                  </p>官微负责人</td>
+                <td>
+                  <b>罗惠丽</b>
+                  </p>文案策划部部长</td>
+                <td>
+                  <b>王烺</b>
+                  </p>文案策划部部长</td>
+                <td>
+                  <b>叶学斌</b>
+                  </p>微信运营部部长</td>
+              </tr>
+              <tr>
+                <td>
+                  <b>王雪</b>
+                  </p>微信运营部部长</td>
+                <td>
+                  <b>刘睿祺</b>
+                  </p>微博运营部部长</td>
+                <td>
+                  <b>陈一笑</b>
+                  </p>摄影部部长</td>
+                <td>
+                  <b>王晓鑫</b>
+                  </p>设计部部长</td>
+              </tr>
+              <th scope="col" colspan="5">&nbsp;</th>
+              <tr>
+                <th scope="col" colspan="5">2017届</th>
+              </tr>
+              <tr>
+                <td>
+                  <b>危贤文</b>
+                  </p>官微负责人</td>
+                <td>
+                  <b>吴婷婷</b>
+                  </p>官微负责人</td>
+                <td>
+                  <b>赵祎玮</b>
+                  </p>文案部部长</td>
+                <td>
+                  <b>黎诗亭</b>
+                  </p>文案部部长</td>
+                <td>
+                  <b>陈雪婷</b>
+                  </p>编辑部部长</td>
+              </tr>
+              <tr>
+                <td width="20%">
+                  <b>刘英</b>
+                  </p>编辑部部长</td>
+                <td width="20%">
+                  <b>王琳禹</b>
+                  </p>微博部部长</td>
+                <td width="20%">
+                  <b>杨若君</b>
+                  </p>摄影设计部部长</td>
+                <td width="20%">&nbsp;</td>
+                <td width="20%">&nbsp;</td>
+              </tr>
+              <th scope="col" colspan="5">&nbsp;</th>
+              <tr>
+                <th scope="col" colspan="5">2016届</th>
+              </tr>
+              <tr>
+                <td width="20%">
+                  <b>危贤文</b>
+                  </p>官微负责人</td>
+                <td width="20%">
+                  <b>吴婷婷</b>
+                  </p>官微负责人</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <br>
+      </div>
+      <div class='item2' v-if='Title[1].swi'>
+        <div class='abouttitle'>团队简介</div>
+        <hr>
+        </p>
+        <div class='aboutcontent'>
+          &emsp;&emsp;上海海洋大学校记者团是隶属于我校党委宣传部的校级组织，同时也是中国高校传媒联盟主席团单位、中国（上海）高校传媒联盟会员媒体，2017-2018年度我们还荣获了上海校媒颁发的“五星校园媒体”称号。是我校最专业的学生媒体。
+          </p>
+          &emsp;&emsp;在记者团，第一手资讯，报道拍摄校内外活动，与大咖面对面交流，还有新民晚报的实习机会等，喜欢新闻、喜欢摄影、喜欢文字、喜欢ps与视频制作、喜欢视觉设计、网上冲浪的同学千万不要错过！
+          </p>
+          <center>
+            <img src="images/about/记者团二维码.png" width=180px height=180px></center>
+        </div>
+        <br>
+        <div class='abouttitle'>加入我们</div>
+        <hr><br>
+        </p>
+        <div class='aboutcontent'>
+          <center>
+            <a
+              href="https://mp.weixin.qq.com/s?__biz=MjM5MDUxNDExNA==&mid=2650314184&idx=1&sn=cf248ef354fb5cb7e0d5178e794652ca&chksm=be4f9b658938127306bf7582e94b1b60e6e7eec04e955cdc1ff40cd811966e0145674e1b0e21&scene=27&ascene=0&devicetype=android-27&version=2700043a&nettype=WIFI&abtest_cookie=BQABAAgACgALABIAEwAGAJ%2BGHgBWmR4AxJkeANyZHgDimR4A9ZkeAAAA&lang=zh_CN&pass_ticket=6awbFqnPySxMDYrYsl3661gWpQ8K%2BgGD8IT7%2FBs1iEOCzU4LdxJ15ZG1b6CprdtS&wx_header=1">2018年秋季招新链接</a>
+            </p>（当前未在招新阶段，敬请关注！）</center>
+          </p>
+        </div>
+        <br>
+        <br>
+      </div>
+      <div class='item2' v-if='Title[2].swi'>
+        <center><img src="images/building.jpg" width="50%"></p>
+          </p>暂时还没有介绍呢，敬请期待！</center>
+      </div>
+      <div class='item2' v-if='Title[3].swi'>
+        <div class='abouttitle'>团队简介</div>
+        <hr>
+        </p>
+        <div class='aboutcontent'>
+          &emsp;&emsp;上海海洋大学“海大之声”广播台是隶属于上海海洋大学党委宣传部的组织，是上海海洋大学通讯社的成员之一。我们的工作就是让海大校园充满活力，每个午后和黄昏，不论雨天或晴天，沿路旁的广播从来不会缺席。
+          </p>
+          <center>
+            <img src="images/about/海大之声二维码.png" width=180px height=180px></center>
+        </div>
+        <br>
+        <div class='abouttitle'>加入我们</div>
+        <hr><br>
+        </p>
+        <div class='aboutcontent'>
+          <center>
+            <a
+              href="https://mp.weixin.qq.com/s?__biz=MzA4NDQ2MjYxNQ==&mid=2652647381&idx=1&sn=a49158bed5bbb29bece047ae890cc49b&chksm=840e52adb379dbbbfdf244f61a29d9086affefbabec3e58ff0e37fc2f1ce05464a503d8ee1ea&scene=38&ascene=0&devicetype=android-27&version=2700043a&nettype=WIFI&abtest_cookie=BQABAAgACgALABIAEwAGAJ%2BGHgBWmR4AxJkeANyZHgDimR4A9ZkeAAAA&lang=zh_CN&pass_ticket=6awbFqnPySxMDYrYsl3661gWpQ8K%2BgGD8IT7%2FBs1iEOCzU4LdxJ15ZG1b6CprdtS&wx_header=1">2018年秋季招新链接</a>
+            </p>（当前未在招新阶段，敬请关注！）</center>
+          </p>
+        </div>
+        <br>
+        <br>
+        <div class='abouttitle'>团队足迹</div>
+        <hr>
+        <div class='memtable'><br>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <th scope="col" colspan="5">2018届</th>
+              </tr>
+              <tr>
+                <td>
+                  <b>夏晴阳</b>
+                  </p>台长</td>
+                <td>
+                  <b>徐慧</b>
+                  </p>节目总监</td>
+                <td>
+                  <b>汤嘉雯</b>
+                  </p>副台长</td>
+                <td>
+                  <b>杨白斌</b>
+                  </p>副台长</td>
+                <td>
+                  <b>刘瑞琦</b>
+                  </p>编辑部部长</td>
+              </tr>
+              <tr>
+                <td>
+                  <b>孙诗宇</b>
+                  </p>播音部部长</td>
+                <td>
+                  <b>张之怡</b>
+                  </p>制作部部长</td>
+                <td>
+                  <b>范欣茹</b>
+                  </p>外联部部长</td>
+                <td>
+                  <b>黎卉</b>
+                  </p>外联部部长</td>
+                <td>
+                  <b>陈玮文</b>
+                  </p>办公室部长</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+
+<script>
+  var vm = new Vue({
+    el: '#control',
+    data: {
+      Title: [
+        {
+          name: '官微团队',
+          swi: true,
+        },
+        {
+          name: '校记者团',
+          swi: false,
+        },
+        {
+          name: '摄影协会',
+          swi: false,
+        },
+        {
+          name: '海大之声',
+          swi: false,
+        },
+      ],
+    },
+    methods: {
+      click(index) {
+        for (let i = 0; i < 4; i++) {
+          this.Title[i].swi = false;
+        }
+        this.Title[index].swi = true;
+      }
+    },
+  });
+</script>

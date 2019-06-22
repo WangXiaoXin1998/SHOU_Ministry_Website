@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<meta name="viewport" charset=utf-8″ content="width=device-width, initial-scale=1, user-scalable=no" />
+
+<head>
+	<title>上海海洋大学专业代码查询</title>
+	<link rel="stylesheet" href="css/frame.css">
+</head>
+
+<body background="images/background.jpg">
+	<script type="text/javascript" src="js/header.js"></script>
+	<div class='wrap'>
+		<div class='item2'>
+			<center>
+				<div class="search d7">
+					<form>
+						<input name="input" type="text" style="font-size:12px" placeholder="٩(๑^o^๑)۶ 是搜索框呀！">
+					</form>
+				</div>
+				<font size="3"><b>上海海洋大学专业代码对照表</b></font><br>
+				<div id="content">
+					<table width="95%" border="1" cellspacing="0" cellpadding="0"
+						style="text-align:center;vertical-align:middle;">
+						<tbody>
+							<tr>
+								<th scope="col">所属学院</th>
+								<th scope="col">专业名称</th>
+								<th scope="col">专业代码</th>
+							</tr>
+							<tr>
+								<td rowspan="2">水产与生命学院</td>
+								<td>生物科学类</td>
+								<td>13</td>
+							</tr>
+							<tr>
+								<td>水产类</td>
+								<td>11</td>
+							</tr>
+							<tr>
+								<td rowspan="2">海洋科学学院</td>
+								<td>海洋渔业科学与技术</td>
+								<td>21</td>
+							</tr>
+							<tr>
+								<td>海洋科学类</td>
+								<td>29</td>
+							</tr>
+							<tr>
+								<td rowspan="4">食品学院</td>
+								<td>食品科学与工程类</td>
+								<td>31</td>
+							</tr>
+							<tr>
+								<td>包装工程</td>
+								<td>33</td>
+							</tr>
+							<tr>
+								<td>生物制药</td>
+								<td>34</td>
+							</tr>
+							<tr>
+								<td>能源动力类</td>
+								<td>32</td>
+							</tr>
+							<tr>
+								<td rowspan="2">海洋生态与环境学院</td>
+								<td>环境科学与工程类</td>
+								<td>15</td>
+							</tr>
+							<tr>
+								<td>生态学</td>
+								<td>16</td>
+							</tr>
+							<tr>
+								<td rowspan="7">经济管理学院</td>
+								<td>国际经济与贸易</td>
+								<td>42</td>
+							</tr>
+							<tr>
+								<td>会计学</td>
+								<td>44</td>
+							</tr>
+							<tr>
+								<td>金融学</td>
+								<td>43</td>
+							</tr>
+							<tr>
+								<td>农林经济管理</td>
+								<td>41</td>
+							</tr>
+							<tr>
+								<td>工商管理（食品经济管理）</td>
+								<td>46</td>
+							</tr>
+							<tr>
+								<td>市场营销</td>
+								<td>45</td>
+							</tr>
+							<tr>
+								<td>物流管理</td>
+								<td>40</td>
+							</tr>
+							<tr>
+								<td rowspan="5">工程学院</td>
+								<td>机械设计制造及其自动化</td>
+								<td>22</td>
+							</tr>
+							<tr>
+								<td>工业工程</td>
+								<td>25</td>
+							</tr>
+							<tr>
+								<td>物流工程</td>
+								<td>28</td>
+							</tr>
+							<tr>
+								<td>电气工程及其自动化</td>
+								<td>27</td>
+							</tr>
+							<tr>
+								<td>测控技术与仪器</td>
+								<td>23</td>
+							</tr>
+							<tr>
+								<td rowspan="4">信息学院</td>
+								<td>计算机科学与技术</td>
+								<td>51</td>
+							</tr>
+							<tr>
+								<td>空间信息与数字技术</td>
+								<td>53</td>
+							</tr>
+							<tr>
+								<td>信息与计算科学</td>
+								<td>57</td>
+							</tr>
+							<tr>
+								<td>软件工程</td>
+								<td>59</td>
+							</tr>
+							<tr>
+								<td rowspan="2">海洋文化与法律学院</td>
+								<td>行政管理</td>
+								<td>63</td>
+							</tr>
+							<tr>
+								<td>社会工作</td>
+								<td>69</td>
+							</tr>
+							<tr>
+								<td rowspan="3">外国语学院</td>
+								<td>英语</td>
+								<td>61</td>
+							</tr>
+							<tr>
+								<td>日语</td>
+								<td>62</td>
+							</tr>
+							<tr>
+								<td>朝鲜语</td>
+								<td>60</td>
+							</tr>
+							<tr>
+								<td rowspan="2">爱恩学院</td>
+								<td>信息管理与信息系统</td>
+								<td>91</td>
+							</tr>
+							<tr>
+								<td>市场营销（国际商务）</td>
+								<td>92</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				（数据更新于2019年3月，勘误请<a href="author.html">联系作者</a>）
+			</center>
+		</div>
+	</div>
+
+</body>
+
+</html>
+
+<script src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/mark.js/7.0.0/jquery.mark.min.js"></script>
+<script type="text/javascript">
+	$(function () {
+		$("input").on("input.highlight", function () {
+			// Determine specified search term
+			var searchTerm = $(this).val();
+			// Highlight search term inside a specific context
+			$("#content").unmark().mark(searchTerm);
+		}).trigger("input.highlight").focus();
+	});
+</script>

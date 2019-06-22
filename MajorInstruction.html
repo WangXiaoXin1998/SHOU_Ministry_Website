@@ -1,0 +1,287 @@
+﻿<meta name="viewport" charset=utf-8″ content="width=device-width, initial-scale=1, user-scalable=no" />
+<html>
+
+<head>
+	<title>上海海洋大学专业介绍</title>
+	<link rel="stylesheet" href="css/frame.css">
+</head>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+<body>
+	<script type="text/javascript" src="js/header.js"></script>
+	<div class='wrap'>
+		<div class='item2'>
+			<div id="control">
+				<div class="title">
+					2019年上海海洋大学专业介绍推送
+				</div>
+				<el-collapse v-model="activeName" accordion>
+					<div v-for="(college,index) in majorInstruction">
+						<el-collapse-item :title=college.name :name=index>
+							<div v-for="major in college.major" class="button">
+								<div v-if='major.url==""'>
+									<el-button plain disabled>{{major.name}}</el-button>
+								</div>
+								<div v-if='major.url!=""'>
+									<el-button plain @click='location=major.url'>{{major.name}}</el-button>
+								</div>
+							</div>
+						</el-collapse-item>
+					</div>
+				</el-collapse>
+			</div>
+		</div>
+	</div>
+	</div>
+	</template>
+
+</body>
+<script>
+	var vm = new Vue({
+		el: '#control',
+		data: {
+			activeName: '1',
+			majorInstruction: [
+				{
+					name: '水产与生命学院',
+					major: [
+						{
+							name: '水产养殖学',
+							url: 'https://mp.weixin.qq.com/s/q2_D-7J7QZIdsSKT1ZPAUw',
+						},
+						{
+							name: '水族科学与技术',
+							url: '',
+						},
+						{
+							name: '水生动物医学',
+							url: '',
+						},
+						{
+							name: '生物科学',
+							url: '',
+						},
+						{
+							name: '生物科学（海洋生物）',
+							url: '',
+						},
+						{
+							name: '生物技术',
+							url: '',
+						},
+					]
+				},
+				{
+					name: '海洋科学学院',
+					major: [
+						{
+							name: '海洋渔业科学与技术',
+							url: 'https://mp.weixin.qq.com/s/qB_gUefQjtybx7YkwwhpNQ',
+						},
+						{
+							name: '海洋资源与环境',
+							url: '',
+						},
+						{
+							name: '海洋科学',
+							url: '',
+						},
+						{
+							name: '海洋技术',
+							url: '',
+						},
+					]
+				},
+				{
+					name: '食品学院',
+					major: [
+						{
+							name: '食品科学与工程',
+							url: 'https://mp.weixin.qq.com/s/eh6ZBnvmFggVt095bLZKaQ',
+						},
+						{
+							name: '食品质量与安全',
+							url: '',
+						},
+						{
+							name: '生物制药',
+							url: '',
+						},
+						{
+							name: '能源与动力工程',
+							url: '',
+						},
+						{
+							name: '建筑环境与能源应用工程',
+							url: '',
+						},
+						{
+							name: '包装工程',
+							url: '',
+						},
+					]
+				},
+				{
+					name: '海洋生态与环境学院',
+					major: [
+						{
+							name: '环境科学',
+							url: 'https://mp.weixin.qq.com/s/YWBOhlQJ3JIHT1jnsvymSQ',
+						},
+						{
+							name: '环境工程',
+							url: '',
+						},
+						{
+							name: '生态学',
+							url: '',
+						},
+					]
+				},
+				{
+					name: '经济管理学院',
+					major: [
+						{
+							name: '农林经济管理',
+							url: '',
+						},
+						{
+							name: '国际经济与贸易',
+							url: '',
+						},
+						{
+							name: '金融学',
+							url: '',
+						},
+						{
+							name: '会计学',
+							url: '',
+						},
+						{
+							name: '市场营销',
+							url: '',
+						},
+						{
+							name: '物流管理',
+							url: '',
+						},
+						{
+							name: '工商管理（食品经济管理方向）',
+							url: '',
+						},
+					]
+				},
+				{
+					name: '工程学院',
+					major: [
+						{
+							name: '机械设计制造及其自动化',
+							url: '',
+						},
+						{
+							name: '工业工程',
+							url: '',
+						},
+						{
+							name: '电气工程及其自动化',
+							url: '',
+						},
+						{
+							name: '测控技术与仪器',
+							url: '',
+						},
+						{
+							name: '物流工程',
+							url: '',
+						},
+					]
+				},
+				{
+					name: '信息学院',
+					major: [
+						{
+							name: '计算机科学与技术',
+							url: '',
+						},
+						{
+							name: '软件工程',
+							url: '',
+						},
+						{
+							name: '信息与计算科学',
+							url: '',
+						},
+						{
+							name: '空间信息与数字技术',
+							url: '',
+						},
+					]
+				},
+				{
+					name: '海洋文化与法律学院',
+					major: [
+						{
+							name: '行政管理（公共行政、劳动与社会保障、海洋管理）',
+							url: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652325886&idx=1&sn=abd5df8adb61d8ae70bff991a12ff4cc&chksm=bd001fa88a7796be0d630d8a4ff67a0a552b4fe135cb8785f93eb69a8f7bc5601ff6c6d71473&mpshare=1&scene=1&srcid=&pass_ticket=wrFL709EuX14W0m3WV9dW7HtEG1guG9JdHkm5G%2BnyfI5CwmjTv4ngbxkJYlsmn7i#rd',
+						},
+						{
+							name: '社会工作',
+							url: '',
+						},
+					]
+				},
+				{
+					name: '外国语学院',
+					major: [
+						{
+							name: '英语',
+							url: 'https://mp.weixin.qq.com/s/VjJZO48M9_nTZrF2_XHf0g',
+						},
+						{
+							name: '日语',
+							url: '',
+						},
+						{
+							name: '朝鲜语',
+							url: '',
+						},
+					]
+				},
+				{
+					name: '爱恩学院',
+					major: [
+						{
+							name: '信息管理与信息系统',
+							url: 'https://mp.weixin.qq.com/s?__biz=MjM5Njc4NjQ4OQ==&mid=2652325882&idx=1&sn=96def493b80432df119b45ea6095963b&chksm=bd001fac8a7796ba9c2f29d3d237f131443216e94957c95701ddcc852efa286187f6acdd3742&mpshare=1&scene=1&srcid=&pass_ticket=wrFL709EuX14W0m3WV9dW7HtEG1guG9JdHkm5G%2BnyfI5CwmjTv4ngbxkJYlsmn7i#rd',
+						},
+						{
+							name: '市场营销（国际商务）',
+							url: '',
+						},
+					]
+				},
+			]
+		},
+		methods: {
+		},
+	},
+	);
+</script>
+
+<style>
+.button{
+	margin-bottom:5px;
+	margin-top:5px;
+}
+.title{
+	text-align:center;
+	font-size: 18px;
+	font-weight: 500;
+	color: black;
+	margin-bottom:8px;
+}
+</style>
+
+</html>

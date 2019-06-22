@@ -1,0 +1,129 @@
+﻿<meta name="viewport" charset=utf-8″ content="width=device-width, initial-scale=1, user-scalable=no" />
+<html>
+
+<head>
+	<title>上海海洋大学校园导览</title>
+	<link rel="stylesheet" href="css/frame.css">
+	<link rel="stylesheet" href="css/navigation.css">
+	<link rel="stylesheet" href="css/element.css">
+</head>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript" src="js/element.js"></script>
+
+<body>
+	<script type="text/javascript" src="js/header.js"></script>
+	<div class='wrap'>
+		<div class='item2'>
+			<div id="control">
+				<el-row>
+					<div v-for="Web in NavInfor">
+						<el-col :span=8>
+							<div id="piclogo" align="center">
+								<div v-if=Web.VPNnotice>
+									<img :src=Web.pic @click="VPNalert(Web.name,Web.href)" />
+								</div>
+								<div v-if=!Web.VPNnotice>
+									<a :href=Web.href><img :src=Web.pic /></a>
+								</div>
+								<div id="accname">{{Web.name}}</div>
+							</div>
+						</el-col>
+					</div>
+				</el-row>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
+
+<script>
+	var vm = new Vue({
+		el: '#control',
+		data: {
+			NavInfor: [
+				{
+					name: '上海海洋大学官网',
+					pic: 'images/logo/上海海洋大学官微.png',
+					href: 'http://www.shou.edu.cn',
+				},
+				{
+					name: '本科招生信息网',
+					pic: 'images/logo/本科招生信息网.jpg',
+					href: 'https://zsjy.shou.edu.cn/',
+				},
+				{
+					name: '本科教学信息网',
+					pic: 'images/logo/本科教学信息网.jpg',
+					href: 'http://jwc.shou.edu.cn/',
+				},
+				{
+					name: '上海海洋大学研究生院',
+					pic: 'images/logo/上海海洋大学研究生会.png',
+					href: 'http://yjs.shou.edu.cn/',
+				},
+				{
+					name: 'URP教务管理系统',
+					pic: 'images/logo/URP综合教务系统.png',
+					href: 'https://urp.shou.edu.cn',
+					VPNnotice: 1,
+				},
+				{
+					name: 'EOL网络教学',
+					pic: 'images/logo/网络教学综合平台.png',
+					href: 'http://202.121.66.141/meol/homepage/common/',
+					VPNnotice: 1,
+				},
+				{
+					name: '教务辅助系统',
+					pic: 'images/logo/教务辅助系统.jpg',
+					href: 'http://zsjy.shou.edu.cn/aaos',
+				},
+				{
+					name: '体质管理综合查询',
+					pic: 'images/logo/体质管理综合查询.png',
+					href: 'http://202.121.66.64/sportscore/default.aspx?appinstall=0',
+					VPNnotice: 1,
+				},
+				{
+					name: '学生工作管理信息系统',
+					pic: 'images/logo/学生工作管理信息系统.jpg',
+					href: 'http://f.yiban.cn/iframe/index?act=shhydxxszzglxt',
+					VPNnotice: 1,
+				},
+				{
+					name: '海大图书馆预约',
+					pic: 'images/logo/上海海洋大学图书馆.png',
+					href: 'http://wechat.v2.traceint.com/index.php/reserve/index.html?f=wechat&n=5c519ed76704d',
+				},
+				{
+					name: '学生教材征订',
+					pic: 'images/logo/学生教材征订.jpg',
+					href: 'http://univ.xinhua.sh.cn/login?univ=HY',
+				},
+				{
+					name: '思政课在线练习',
+					pic: 'images/logo/思政课在线练习.jpg',
+					href: 'http://202.121.66.73/exam_exercise.html',
+				},
+				{
+					name: '四六级报名链接',
+					pic: 'images/logo/四六级.jpg',
+					href: 'http://cet-bm.neea.cn/',
+				},
+			],
+		},
+		methods: {
+			VPNalert(name,href) {
+				this.$confirm(name+'需使用校园局域网或连接校园VPN后方可访问, 是否继续？', '提示', {
+					confirmButtonText: '确定',
+					cancelButtonText: '取消',
+					type: 'warning'
+				}).then(() => {
+					window.location.href = href;
+				})
+			}
+		}
+	});
+</script>
