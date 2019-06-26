@@ -1,0 +1,108 @@
+﻿<meta name="viewport" charset=utf-8″ content="width=device-width, initial-scale=1, user-scalable=no" />
+<html>
+
+<head>
+	<title>上海海洋大学2019招生报考</title>
+	<link rel="stylesheet" href="css/frame.css">
+	<link rel="stylesheet" href="css/element.css">
+</head>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript" src="js/element.js"></script>
+
+<body>
+	<script type="text/javascript" src="js/header.js"></script>
+	<div class='wrap'>
+		<div class='item2'>
+			<div id="control">
+				<el-row>
+					<el-col  v-for="topic in series">
+						<a :href='topic.href'>
+							<el-card :body-style="{ padding: '0px' }">
+								<img :src='topic.pic' class="image">
+								<div style="padding: 14px;">
+									{{topic.title}}
+									<div class="bottom clearfix">
+										<time class="time">{{topic.footer}}</time>
+									</div>
+								</div>
+							</el-card>
+						</a>
+						</br>
+					</el-col>
+				</el-row>
+			</div>
+		</div>
+	</div>
+</body>
+
+
+<script>
+	var vm = new Vue({
+		el: '#control',
+		data: {
+			series: [
+				{
+					title: '报考指南H5版',
+					pic: 'images/topic/报考指南1.png',
+					href: 'https://m-sheep.eol.cn/ebook/1619?from=timeline',
+					footer: '学校简介｜录取分数｜招生计划',
+				},
+				{
+					title: '报考指南图文版',
+					pic: 'images/topic/报考指南2.png',
+					href: 'RecruitImages.html',
+					footer: '图文教你如何查报考信息',
+				},
+				{
+					title: '海大H5秀',
+					pic: 'images/topic/海大H5秀.png',
+					href: 'https://d.eqxiu.com/s/DjXqqCw5?eqrcode=1&share_level=9&from_user=347fd751-ecea-4b85-bc6b-d2d847d91684&from_id=4ec20658-7&share_time=1561471248937&from=timeline&isappinstalled=0',
+					footer: '蓝色梦想 踏浪而行',
+				},
+			],
+		},
+		methods: {
+		}
+	});
+</script>
+
+<style>
+	.articleDate {
+		font-fize: 14px;
+		color: gray;
+		text-align: right
+	}
+
+	.articleTitle {
+		font-size: 14px;
+		color: black
+	}
+
+	.time {
+		font-size: 13px;
+		color: #999;
+	}
+
+	.bottom {
+		margin-top: 5px;
+		margin-bottom: 5px;
+		line-height: 15px;
+	}
+
+	.image {
+		width: 100%;
+		display: block;
+	}
+
+	.clearfix:before,
+	.clearfix:after {
+		display: table;
+		content: "";
+	}
+
+	.clearfix:after {
+		clear: both
+	}
+</style>
+
+</html>
