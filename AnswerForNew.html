@@ -1,0 +1,240 @@
+﻿<meta name="viewport" charset=utf-8″ content="width=device-width, initial-scale=1, user-scalable=no" />
+<html>
+
+<head>
+	<title>上海海洋大学官微新生答疑</title>
+	<link rel="stylesheet" href="css/frame.css">
+	<link rel="stylesheet" href="css/element.css">
+</head>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript" src="js/element.js"></script>
+<script type="text/javascript" src="js/vue-clipboard.min.js"></script>
+
+<body>
+	<script type="text/javascript" src="js/header.js"></script>
+	<div class='wrap'>
+		<div class='box'>
+			<div id="control">
+				<el-input style="width:70%;margin-left:30%" placeholder="请输入关键词" prefix-icon="el-icon-search"
+					v-model="input">
+				</el-input>
+				<br><br>
+				<div v-for="QA in QA">
+					<div v-if=cal(QA.question,input)||cal(QA.answer,input)||cal(QA.keywords,input)>
+						<el-card>
+							<div slot="header" class="depart">
+								<span>{{QA.question}}</span>
+							</div>
+							<div class="tel">
+								<span v-html="QA.answer"></span>
+							</div>
+						</el-card>
+						<br>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script>
+	var vm = new Vue({
+		el: '#control',
+		number: 0,
+		data: {
+			input: '',
+			QA: [
+				{
+					question: '上海海洋大学的热门专业是什么？哪个专业好？',
+					answer: '　　热门专业一般是指报考学生较多，考分较高的专业，取决于考生的志愿选择。各个专业之间并没有必要的可比性，建议按照个人的兴趣爱好以及自身情况进行选择专业报考。',
+					keywords: '',
+				},
+				{
+					question: '有学校的专业简介吗？',
+					answer: '　　可查阅上海海洋大学官方微信近期推送，或<a href="http://shouxcb.cn/MajorInstruction.html">点击此处</a>查看。',
+					keywords: '专业介绍',
+				},
+				{
+					question: '学校是否有辅修专业？',
+					answer: '　　可校内辅修，也可以选修复旦、同济等上海东部10所高校开设的跨校辅修专业或选修课程，经考核合格，可获得辅修学校的辅修专业证书。',
+					keywords: '',
+				},
+				{
+					question: '进校后，如何重选专业（转专业）？',
+					answer: '　　大一下学期学生可申请重选专业。',
+					keywords: '',
+				},
+				{
+					question: '学费多少钱一年？宿舍费多少钱一年？',
+					answer: '　　一般专业每生每学年最高不超过5000元；特殊热门专业每生每学年最高不超过6500元；中澳合作办学管理科学与工程类、工商管理类每生每学年最高不超过15000元；宿舍费用每生每学年1200元。',
+					keywords: '',
+				},
+				{
+					question: '地图上有好几个校区，我们上学是在哪个校区？',
+					answer: '　　本科生、研究生都是在上海海洋大学临港校区（地址：上海市浦东新区临港新城沪城环路999号）。',
+					keywords: '',
+				},
+				{
+					question: '上海海洋大学的体检标准如何？',
+					answer: '　　按教育部《普通高等学校招生体检工作指导意见》执行。',
+					keywords: '',
+				},
+				{
+					question: '上海海洋大学招生是否有男女比例限定？',
+					answer: '　　无。海洋渔业科学与技术（本科）用人单位一般只招男生，请女生慎重报考。',
+					keywords: '',
+				},
+				{
+					question: '专业对外语语种有何要求？对英语口试有何要求？',
+					answer: '　　无限制。我校除日语、朝鲜语专业外，其他专业入学后大学外语教学语种为英语，请小语种考生慎重填报。',
+					keywords: '',
+				},
+				{
+					question: '投档比例是多少？',
+					answer: '　　按各考试院规定，结合我校生源情况设定投档比例。提前批120%，平行志愿各批次投档比例不超过105%。',
+					keywords: '',
+				},
+				{
+					question: '专业同意调剂，是否会调到高收费专业？',
+					answer: '　　考生填报同意专业调剂，表示愿意接受全部未填专业的调剂录取，任何专业都有可能，所以有调剂到高收费专业的可能。',
+					keywords: '',
+				},
+				{
+					question: '上海海洋大学专业录取时是否认可各省政策加分？',
+					answer: '　　认可。',
+					keywords: '',
+				},
+				{
+					question: '学校交通是否便利？',
+					answer: '　　学校不设校车，地铁16号线临港大道站/滴水湖站换乘多条公交线路均可达校门口。地铁16号线，更加便捷。',
+					keywords: '地铁公交车',
+				},
+				{
+					question: '关于大类招生分专业的情况是怎么样的？',
+					answer: '　　大一下学期在本大类内根据成绩绩点和学生志愿确定专业。也可参加全校重选专业。',
+					keywords: '',
+				},
+				{
+					question: '上海海洋大学可以直升研究生吗？',
+					answer: '　　优秀学生可推荐免试直升研究生，可以是本校，也可以是外校。',
+					keywords: '',
+				},
+				{
+					question: '学校的邮政编码是多少？',
+					answer: '　　学校邮编：201306',
+					keywords: '邮编',
+				},
+				{
+					question: '学校的快递地址是哪里？',
+					answer: '【快递地址】上海市浦东新区南汇新城镇沪城环路999号上海海洋大学<br/>（快递将配送至快递服务中心或学校4号门外）',
+					keywords: '寄快递',
+				},
+				{
+					question: '学校有洗衣机吗？',
+					answer: '　　每个学生小区设有一定量的公共洗衣机，可以凭学生卡或扫码进行使用。',
+					keywords: '',
+				},
+				{
+					question: '宿舍有门禁吗？几点算晚归？',
+					answer: '　　学校门禁时间为23:00-次日6:00，期间进出需登记并记为晚归。',
+					keywords: '',
+				},
+				{
+					question: '学校宿舍几人间？',
+					answer: '　　本科生宿舍均为4人间。',
+					keywords: '',
+				},
+				{
+					question: '宿舍是上床下铺还是上下铺？可以申请更换宿舍吗？',
+					answer: '　　每栋楼的*01/*07/*08为上下铺宿舍，其余的均为上床下桌。原则上宿舍随机分配，不允许更换，如有特殊情况可提出申请。',
+					keywords: '',
+				},
+				{
+					question: '学校的床多大？',
+					answer: '　　床宽0.9米、长2.0米。',
+					keywords: '尺寸',
+				},
+				{
+					question: '学校洗澡条件如何？',
+					answer: '　　每个厅（3-4间宿舍）有2个洗浴间，学生小区热水从15:30供应至22:30。',
+					keywords: '热水',
+				},
+				{
+					question: '学校会断电断网吗？',
+					answer: '　　学生小区24小时供电供网（特殊检修时间段除外）。',
+					keywords: '宽带',
+				},
+				{
+					question: '学校有没有共享单车？',
+					answer: '　　目前校内没有共享单车。',
+					keywords: '',
+				},
+				{
+					question: '宿舍有空调吗？',
+					answer: '　　我校空调实行租赁制度，开学初可前往第二小区裙房进行租赁登记。具体价格以实际公布为准（往年参考价：400/年/宿舍，外加200元押金退租退还）。',
+					keywords: '',
+				},
+				{
+					question: '学校教材怎么征订？',
+					answer: '　　新生教材会在开学初通知统一购买，也可选择自行购买。经认定的困难生可以租借教材。',
+					keywords: '',
+				},
+				{
+					question: '学校的发的农业银行卡必须激活吗？',
+					answer: '　　建议激活。学杂费、考试报名费均从该卡中扣款，学校补助、奖学金也发放至该卡，未激活会影响正常使用。',
+					keywords: '农行卡',
+				},
+				{
+					question: '收音机必须购买吗？',
+					answer: '　　学校英语考试以及四、六级考试等均需自备收音机，建议尽早购买。',
+					keywords: '听力',
+				},
+				{
+					question: '校园一卡通密码是什么？',
+					answer: '　　密码为身份证后7位去掉最后1位。',
+					keywords: '校园卡学生卡',
+				},
+			]
+		},
+		methods: {
+			cal(str1, str2) {
+				return str1.includes(str2)
+			},
+			copy() {
+				var clipboard = new Clipboard('.tag-read')
+				clipboard.on('success', e => {
+					clipboard.destroy()
+				})
+				clipboard.on('error', e => {
+					clipboard.destroy()
+				})
+			},
+		},
+	});
+</script>
+
+<style>
+	.box {
+		width: 96%;
+		margin-left: 2%;
+	}
+
+	.depart {
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 18px
+	}
+
+	.tel {
+		font-size: 14px;
+		line-height: 20px;
+	}
+
+	.copy {
+		float: right;
+		margin-top: -5px;
+		margin-left: 2px;
+	}
+</style>
+
+</html>
