@@ -1,12 +1,11 @@
 .piclogo {
     margin: 0px auto;
-    min-height: 170px;
+    min-height: 160px;
 }
 .piclogo img {
     width: 80%;
 	border-radius: 50%;
 	overflow: hidden;
-    margin-top: 12px;
 }
 .navlogo {
     margin: 0px auto;
