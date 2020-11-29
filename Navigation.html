@@ -3,11 +3,10 @@
 
 <head>
 	<title>上海海洋大学校园导览</title>
-	<link rel="stylesheet" href="css/matrix.css">
-	<link rel="stylesheet" href="css/frame.css">
-	<link rel="stylesheet" href="css/navigation.css">
-	<link rel="stylesheet" href="css/element.css">
 </head>
+<link rel="stylesheet" href="css/matrix.css">
+<link rel="stylesheet" href="css/frame.css">
+<link rel="stylesheet" href="css/element.css">
 <script type="text/javascript" src="js/vue.min.js"></script>
 <script type="text/javascript" src="js/element.js"></script>
 
@@ -35,7 +34,7 @@
 		    					<div v-if=!Web.VPNnotice>
 		    						<a :href=Web.href><img :src=Web.pic /></a>
 		    					</div>
-                                <div id="accname">{{Web.name}}</div>
+                                <div class="accname">{{Web.name}}</div>
 		    				</div>
 		    			</el-col>
 		    		</div>
@@ -45,7 +44,7 @@
 		    			<el-col :span=8>
 		    				<div class="navlogo" align="center">
 		    					<a :href=Web.href><img :src=Web.pic /></a>
-                                <div id="accname">{{Web.name}}</div>
+                                <div class="accname">{{Web.name}}</div>
 		    				</div>
 		    			</el-col>
 		    		</div>
