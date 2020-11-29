@@ -1,9 +1,9 @@
 .piclogo {
-	margin: 0px auto
+    margin: 0px auto;
+    height: 150px;
 }
 .piclogo img {
-    width: 120px;
-    height: 120px;
+    width: 80%;
 	border-radius: 50%;
 	overflow: hidden;
     margin-top: 12px;
