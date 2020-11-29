@@ -3,6 +3,7 @@
 
 <head>
 	<title>上海海洋大学校园导览</title>
+	<link rel="stylesheet" href="css/matrix.css">
 	<link rel="stylesheet" href="css/frame.css">
 	<link rel="stylesheet" href="css/navigation.css">
 	<link rel="stylesheet" href="css/element.css">
@@ -11,29 +12,47 @@
 <script type="text/javascript" src="js/element.js"></script>
 
 <body>
-	<script type="text/javascript" src="js/header.js"></script>
-	<div class='wrap'>
-		<div class='item2'>
-			<div id="control">
-				<el-row>
-					<div v-for="Web in NavInfor">
-						<el-col :span=8>
-							<div id="piclogo" align="center">
-								<div v-if=Web.VPNnotice>
-									<img :src=Web.pic @click="VPNalert(Web.name,Web.href)" />
-								</div>
-								<div v-if=!Web.VPNnotice>
-									<a :href=Web.href><img :src=Web.pic /></a>
-								</div>
-								<div id="accname">{{Web.name}}</div>
-							</div>
-						</el-col>
-					</div>
-				</el-row>
-			</div>
-		</div>
-	</div>
-
+    <script type="text/javascript" src="js/header.js"></script>
+    <div id="control">
+        <div class="wrap" style="margin:8px">
+            <el-row :gutter="20">
+              <div v-for="(item,index) in Title">
+                <el-col :span="12">
+                  <div :class="[item.swi?'buttonon':'buttonoff']" @click="click(index)">{{item.name}}</div>
+                </el-col>
+              </div>
+            </el-row>
+          </div>
+	    <div class='wrap'>
+		    <div class='item2'>
+		    	<el-row v-if="Title[0].swi">
+		    		<div v-for="Web in NavInfor">
+		    			<el-col :span=8>
+		    				<div class="navlogo" align="center">
+		    					<div v-if=Web.VPNnotice>
+		    						<img :src=Web.pic @click="VPNalert(Web.name,Web.href)" />
+		    					</div>
+		    					<div v-if=!Web.VPNnotice>
+		    						<a :href=Web.href><img :src=Web.pic /></a>
+		    					</div>
+                                <div id="accname">{{Web.name}}</div>
+		    				</div>
+		    			</el-col>
+		    		</div>
+		    	</el-row>
+		    	<el-row v-if="Title[1].swi">
+		    		<div v-for="Web in FuncInfor">
+		    			<el-col :span=8>
+		    				<div class="navlogo" align="center">
+		    					<a :href=Web.href><img :src=Web.pic /></a>
+                                <div id="accname">{{Web.name}}</div>
+		    				</div>
+		    			</el-col>
+		    		</div>
+		    	</el-row>
+		    </div>
+	    </div>
+    </div>
 </body>
 
 </html>
@@ -42,6 +61,73 @@
 	var vm = new Vue({
 		el: '#control',
 		data: {
+            Title: [
+              {
+                name: '校园网站',
+                swi: true,
+              },
+              {
+                name: '应用天地',
+                swi: false,
+              },
+            ],
+            FuncInfor: [
+                {
+                    name: '海大微信矩阵',
+                    pic: 'images/logo/微信矩阵.jpg',
+                    href: './WeChatMatrix.html'
+                },
+				{
+					name: '海大校园地图',
+					pic: 'images/logo/map.jpg',
+					href: 'map.html',
+				},
+				{
+					name: '海大年度校历',
+					pic: 'images/logo/年度校历.jpg',
+					href: 'Calendar.html',
+				},
+				{
+					name: '海大专业代码查询',
+					pic: 'images/logo/专业代码查询.jpg',
+					href: 'SpecialtyCode.html',
+				},
+				{
+					name: '海大黄页',
+					pic: 'images/logo/海大黄页.jpg',
+					href: 'YellowPages.html',
+				},
+                {
+                    name: '海大专业介绍',
+                    pic: 'images/logo/上海海洋大学官微.png',
+                    href: './MajorInstruction.html'
+                },
+				{
+					name: '期末总评成绩预估',
+					pic: 'images/logo/成绩预估.png',
+					href: 'Score.html',
+				},
+				{
+					name: 'VR看海大',
+					pic: 'images/logo/VR看海大.jpg',
+					href: 'https://720yun.com/t/54ajzpmuua2?pano_id=5861163',
+				},
+                {
+                    name: '报考招生专题',
+                    pic: 'images/logo/报考招生.png',
+                    href: './RecruitStudent.html'
+                },
+                {
+                    name: '官微专题集锦',
+                    pic: 'images/logo/上海海洋大学官微.png',
+                    href: './Article.html'
+                },
+                {
+                    name: '官微系列专题',
+                    pic: 'images/logo/上海海洋大学官微.png',
+                    href: './Topic.html'
+                },
+            ],
 			NavInfor: [
 				{
 					name: '上海海洋大学官网',
@@ -59,7 +145,7 @@
 					href: 'http://jwc.shou.edu.cn/',
 				},
 				{
-					name: '上海海洋大学研究生院',
+					name: '研究生院官网',
 					pic: 'images/logo/上海海洋大学研究生会.png',
 					href: 'http://yjs.shou.edu.cn/',
 				},
@@ -78,7 +164,8 @@
 				{
 					name: '教务辅助系统',
 					pic: 'images/logo/教务辅助系统.jpg',
-					href: 'http://zsjy.shou.edu.cn/aaos',
+					href: 'http://jxfz.shou.edu.cn/aaos',
+					VPNnotice: 1,
 				},
 				{
 					name: '体质管理综合查询',
@@ -96,7 +183,13 @@
 					name: '海大图书馆预约',
 					pic: 'images/logo/上海海洋大学图书馆.png',
 					href: 'http://wechat.v2.traceint.com/index.php/reserve/index.html?f=wechat&n=5c519ed76704d',
-				},
+                },
+				{
+					name: '海大网上办事大厅',
+					pic: 'images/logo/网上办事大厅.png',
+					href: 'https://workflow.shou.edu.cn/taskcenter/workflow/index',
+					VPNnotice: 1,
+                },
 				{
 					name: '学生教材征订',
 					pic: 'images/logo/学生教材征订.jpg',
@@ -105,7 +198,7 @@
 				{
 					name: '思政课在线练习',
 					pic: 'images/logo/思政课在线练习.jpg',
-					href: 'http://202.121.66.73/exam_exercise.html',
+					href: 'http://117.135.144.215:6571/exam_exercise.html',
 				},
 				{
 					name: '四六级报名链接',
@@ -123,7 +216,13 @@
 				}).then(() => {
 					window.location.href = href;
 				})
-			}
+            },
+            click(index) {
+              for (let i = 0; i < 2; i++) {
+                this.Title[i].swi = false;
+              }
+              this.Title[index].swi = true;
+            }
 		}
 	});
 </script>
