@@ -33,3 +33,11 @@ document.write('\
     </style>\
         ');
 document.write('</br>')
+
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0b01c27940402fe84a05f8cc03a898dd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
