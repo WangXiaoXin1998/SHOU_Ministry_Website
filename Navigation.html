@@ -11,47 +11,47 @@
 <script type="text/javascript" src="js/element.js"></script>
 
 <body>
-    <script type="text/javascript" src="js/header.js"></script>
-    <div id="control">
-        <div class="wrap" style="margin:8px">
-            <el-row :gutter="20">
-              <div v-for="(item,index) in Title">
-                <el-col :span="12">
-                  <div :class="[item.swi?'buttonon':'buttonoff']" @click="click(index)">{{item.name}}</div>
-                </el-col>
-              </div>
-            </el-row>
-          </div>
-	    <div class='wrap'>
-		    <div class='item2'>
-		    	<el-row v-if="Title[0].swi">
-		    		<div v-for="Web in NavInfor">
-		    			<el-col :span=8>
-		    				<div class="navlogo" align="center">
-		    					<div v-if=Web.VPNnotice>
-		    						<img :src=Web.pic @click="VPNalert(Web.name,Web.href)" />
-		    					</div>
-		    					<div v-if=!Web.VPNnotice>
-		    						<a :href=Web.href><img :src=Web.pic /></a>
-		    					</div>
-                                <div class="accname">{{Web.name}}</div>
-		    				</div>
-		    			</el-col>
-		    		</div>
-		    	</el-row>
-		    	<el-row v-if="Title[1].swi">
-		    		<div v-for="Web in FuncInfor">
-		    			<el-col :span=8>
-		    				<div class="navlogo" align="center">
-		    					<a :href=Web.href><img :src=Web.pic /></a>
-                                <div class="accname">{{Web.name}}</div>
-		    				</div>
-		    			</el-col>
-		    		</div>
-		    	</el-row>
-		    </div>
-	    </div>
-    </div>
+	<script type="text/javascript" src="js/header.js"></script>
+	<div id="control">
+		<div class="wrap" style="margin:8px">
+			<el-row :gutter="20">
+				<div v-for="(item,index) in Title">
+					<el-col :span="12">
+						<div :class="[item.swi?'buttonon':'buttonoff']" @click="click(index)">{{item.name}}</div>
+					</el-col>
+				</div>
+			</el-row>
+		</div>
+		<div class='wrap'>
+			<div class='item2'>
+				<el-row v-if="Title[0].swi">
+					<div v-for="Web in NavInfor">
+						<el-col :span=8>
+							<div class="navlogo" align="center">
+								<div v-if=Web.VPNnotice>
+									<img :src=Web.pic @click="VPNalert(Web.name,Web.href)" />
+								</div>
+								<div v-if=!Web.VPNnotice>
+									<a :href=Web.href><img :src=Web.pic /></a>
+								</div>
+								<div class="accname">{{Web.name}}</div>
+							</div>
+						</el-col>
+					</div>
+				</el-row>
+				<el-row v-if="Title[1].swi">
+					<div v-for="Web in FuncInfor">
+						<el-col :span=8>
+							<div class="navlogo" align="center">
+								<a :href=Web.href><img :src=Web.pic /></a>
+								<div class="accname">{{Web.name}}</div>
+							</div>
+						</el-col>
+					</div>
+				</el-row>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
@@ -60,22 +60,20 @@
 	var vm = new Vue({
 		el: '#control',
 		data: {
-            Title: [
-              {
-                name: '校园网站',
-                swi: true,
-              },
-              {
-                name: '应用天地',
-                swi: false,
-              },
-            ],
-            FuncInfor: [
-                {
-                    name: '海大微信矩阵',
-                    pic: 'images/logo/微信矩阵.jpg',
-                    href: './WeChatMatrix.html'
-                },
+			Title: [{
+					name: '校园网站',
+					swi: true,
+				},
+				{
+					name: '应用天地',
+					swi: false,
+				},
+			],
+			FuncInfor: [{
+					name: '海大微信矩阵',
+					pic: 'images/logo/微信矩阵.jpg',
+					href: './WeChatMatrix.html'
+				},
 				{
 					name: '海大校园地图',
 					pic: 'images/logo/map.jpg',
@@ -96,11 +94,11 @@
 					pic: 'images/logo/海大黄页.jpg',
 					href: 'YellowPages.html',
 				},
-                {
-                    name: '海大专业介绍',
-                    pic: 'images/logo/专业介绍.jpg',
-                    href: './MajorInstruction.html'
-                },
+				{
+					name: '海大专业介绍',
+					pic: 'images/logo/专业介绍.jpg',
+					href: './MajorInstruction.html'
+				},
 				{
 					name: '期末总评成绩预估',
 					pic: 'images/logo/成绩预估.png',
@@ -111,24 +109,23 @@
 					pic: 'images/logo/VR看海大.jpg',
 					href: 'https://720yun.com/t/54ajzpmuua2?pano_id=5861163',
 				},
-                {
-                    name: '报考招生专题',
-                    pic: 'images/logo/报考招生.png',
-                    href: './RecruitStudent.html'
-                },
-                {
-                    name: '官微专题集锦',
-                    pic: 'images/logo/上海海洋大学官微.png',
-                    href: './Article.html'
-                },
-                {
-                    name: '官微系列专题',
-                    pic: 'images/logo/上海海洋大学官微.png',
-                    href: './Topic.html'
-                },
-            ],
-			NavInfor: [
 				{
+					name: '报考招生专题',
+					pic: 'images/logo/报考招生.png',
+					href: './RecruitStudent.html'
+				},
+				{
+					name: '官微专题集锦',
+					pic: 'images/logo/上海海洋大学官微.png',
+					href: './Article.html'
+				},
+				{
+					name: '官微系列专题',
+					pic: 'images/logo/上海海洋大学官微.png',
+					href: './Topic.html'
+				},
+			],
+			NavInfor: [{
 					name: '上海海洋大学官网',
 					pic: 'images/logo/上海海洋大学官微.png',
 					href: 'http://www.shou.edu.cn',
@@ -182,19 +179,19 @@
 					name: '海大图书馆预约',
 					pic: 'images/logo/上海海洋大学图书馆.png',
 					href: 'http://wechat.v2.traceint.com/index.php/reserve/index.html?f=wechat&n=5c519ed76704d',
-                },
+				},
 				{
 					name: '网上办事大厅',
 					pic: 'images/logo/网上办事大厅.png',
 					href: 'https://workflow.shou.edu.cn/taskcenter/wechat/index',
 					VPNnotice: 1,
-                },
+				},
 				{
 					name: '智慧财务系统',
 					pic: 'images/logo/智慧财务系统.png',
 					href: 'http://znbx.shou.edu.cn:83/BaseDataMobileWeb/#/Frame/Service/Index',
 					VPNnotice: 1,
-                },
+				},
 				{
 					name: '学生教材征订',
 					pic: 'images/logo/学生教材征订.jpg',
@@ -213,21 +210,21 @@
 			],
 		},
 		methods: {
-			VPNalert(name,href) {
-				this.$confirm(name+'需使用校园局域网或连接校园VPN后方可访问, 是否继续？', '提示', {
+			VPNalert(name, href) {
+				this.$confirm(name + '需连接校园专用网络后方可访问, 是否继续？', '提示', {
 					confirmButtonText: '确定',
 					cancelButtonText: '取消',
 					type: 'warning'
 				}).then(() => {
 					window.location.href = href;
 				})
-            },
-            click(index) {
-              for (let i = 0; i < 2; i++) {
-                this.Title[i].swi = false;
-              }
-              this.Title[index].swi = true;
-            }
+			},
+			click(index) {
+				for (let i = 0; i < 2; i++) {
+					this.Title[i].swi = false;
+				}
+				this.Title[index].swi = true;
+			}
 		}
 	});
 </script>
